@@ -10,7 +10,11 @@
 </head>
 <body>
     <nav id="mainNav" class="navbar navbar-light navbar-expand-md fixed-top navbar-shrink py-3">
-        <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><span>Takalo Takalo</span></a><button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="<?= base_url('assets/img/logo.png')?>" width="35px" height="35px">
+                <span>Takalo Takalo</span>
+            </a>
             <div id="navcol-1" class="collapse navbar-collapse">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" href="#">Log Up</a></li>
@@ -22,12 +26,12 @@
     <section class="py-4 py-md-5 my-5">
     <div class="container py-md-5">
         <div class="row">
-            <div class="col-md-6 text-center"><img class="img-fluid w-50" src="<?= base_url('assets/img/signup.png')?>" /></div>
+            <div class="col-md-6 text-center"><img class="img-fluid w-75" src="<?= base_url('assets/img/signup.png')?>" /></div>
             <div class="col-md-5 col-xl-4 text-center text-md-start">
                 <h2 class="display-6 fw-bold mb-5"><span class="underline pb-1"><strong>User Sign up</strong></span></h2>
                 <form method="post">
-                    <div class="mb-3"><input class="shadow-sm form-control" type="email" name="email" placeholder="Nom" /></div>
-                    <div class="mb-3"><input class="shadow-sm form-control" type="email" name="email" placeholder="Prenom(s)" /></div>
+                    <div class="mb-3"><input class="shadow-sm form-control" type="text" name="name" placeholder="Nom" /></div>
+                    <div class="mb-3"><input class="shadow-sm form-control" type="text" name="first_name" placeholder="Prenom(s)" /></div>
                     <div class="mb-3"><input class="shadow-sm form-control" type="email" name="email" placeholder="Email" /></div>
                     <div class="mb-3"><input class="shadow-sm form-control" type="password" name="password" placeholder="Password" /></div>
                     <div class="mb-3"><input class="shadow-sm form-control" type="password" name="password_repeat" placeholder="Repeat Password" /></div>

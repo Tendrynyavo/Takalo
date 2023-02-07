@@ -10,7 +10,11 @@
 </head>
 <body>
     <nav id="mainNav" class="navbar navbar-light navbar-expand-md fixed-top navbar-shrink py-3">
-        <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><span>Takalo Takalo</span></a><button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="<?= base_url('assets/img/logo.png')?>" width="35px" height="35px">
+                <span>Takalo Takalo</span>
+            </a>
             <div id="navcol-1" class="collapse navbar-collapse">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link active" href="login.html">Log in</a></li>
