@@ -17,10 +17,15 @@ class Categorie extends CI_Controller {
 		$this->load->view('category', $data);
 	}
 
-	public function update() {
+	public function categoriser() {
 		$data = [];
-		$data['objet'] = $this->object_model->get_by_id($this->input->get('id'))[0];
-
+		$data['objet'] = $this->objet_model->get_by_id($this->input->get('id'))[0];
+		$data['categories'] = $this->categorie_model->get_categorie();
 		$this->load->view('categorisation', $data);
+	}
+
+	public function update() {
+		$this->objet_model->modif_categorie($this->input->post('categorie'), $this->input->post('objet'));
+		redirect(base_url('index.php/categorie'));
 	}
 }

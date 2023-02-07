@@ -28,7 +28,7 @@ class Objet_model extends CI_Model {
     
 /// Fonction pour modifier la catégorie d'un objet
     public function modif_categorie($id_categorie = '', $id_objet='') {
-        $sql = 'UPDATE objet SET idCategorie = %d WHERE id = %d';
+        $sql = 'UPDATE objet SET idCategorie = %s WHERE id = %s';
         $sql = sprintf($sql, $this->db->escape($id_categorie), $this->db->escape($id_objet));
         $query = $this->db->query($sql);
     }

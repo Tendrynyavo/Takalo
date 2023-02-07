@@ -28,7 +28,7 @@
         <div class="container py-md-5">
             <div class="card-body">
                 <p>Objet à catégoriser:
-                    <h3 class="text-dark mb-4">Nike</h3>
+                    <h3 class="text-dark mb-4"><?=$objet['nom'] ?></h3>
                 </p>
                 <div class="card shadow"></div>
                 <br>
@@ -37,18 +37,19 @@
                     <div class="card shadow">
                         <div class="card-body" style="padding-right: 20px;padding-left: 20px;margin-right: 415px;">
                             <h3>Choisir la Catégorie :</h3>
-                            <select>
-                                <optgroup label="Catégories">
-                                    <option value="1" selected>Akanjo</option>
-                                    <option value="2">Boky</option>
-                                    <option value="3">Kilalao</option>
-                                    <option value="4">Non Catégorisé</option>
-                                </optgroup>
-                            </select>
-                            
-                            <br>
-                            <br>
-                            <button class="btn btn-success shadow w-25" type="button"><a href="#" class="text-decoration-none text-white">Submit</a></button>
+                            <form method="post" action="<?= base_url('index.php/categorie/update') ?>">
+                                <select name="categorie">
+                                    <optgroup label="Catégories">
+                                        <?php foreach ($categories as $categorie) { ?>
+                                        <option value="<?=$categorie['id'] ?>" <?php if ($categorie['id'] == $objet['idCategorie']) echo "selected"; ?>><?=$categorie['nom'] ?></option>
+                                        <?php } ?>
+                                    </optgroup>
+                                </select>
+                                <input type="hidden" name="objet" value="<?=$objet['id'] ?>">
+                                <br>
+                                <br>
+                                <input type="submit" value="Valider" class="btn btn-success shadow w-25 text-decoration-none text-white">
+                            </form>
                         </div>
                     </div>
                 </div>

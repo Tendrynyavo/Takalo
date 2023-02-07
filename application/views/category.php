@@ -51,7 +51,7 @@
                             <?php foreach ($objets as $objet) { ?>
                             <tr>
                                 <td><?=$objet['nom'] ?></td>
-                                <td><a href=""><button class="btn btn-secondary shadow" type="button">Catégoriser</button></a></td>
+                                <td><a href="<?= base_url('index.php/categorie/categoriser?id='. $objet['id']) ?>"><button class="btn btn-secondary shadow" type="button">Catégoriser</button></a></td>
                             </tr>
                             <?php } ?>
                         </tbody>
