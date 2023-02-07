@@ -18,6 +18,7 @@ CREATE TABLE user(
 CREATE TABLE objet(
     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idUser int REFERENCES user(id),
+    idCategorie int REFERENCES categorie(id),
     descr TEXT NOT NULL,
     prix DOUBLE PRECISION
 );
@@ -34,6 +35,11 @@ CREATE TABLE echange(
     idObjet2 int NOT NULL REFERENCES objet(id),
     submitted int NOT NULL
 );
+
+INSERT INTO categorie(nom) VALUES
+('Akanjo'),
+('Boky'),
+('Kilalao');
 
 INSERT INTO user(nom, prenom, email, mdp, estAdmin) VALUES
 ('Ilohity', '', 'timmypablojamon@gmail.com', '1928', 1),
