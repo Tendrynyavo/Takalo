@@ -22,7 +22,7 @@ class Test extends CI_Controller {
 	}
 
     public function test_func(){
-        $this->objet_model->modif_objet(3, 2);
+        $this->objet_model->modif_objet(3,'Air-Gun2000', 25000.00, 2);
     }
 }	
 
