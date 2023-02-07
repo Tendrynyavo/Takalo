@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= base_url('assets/bootstrap/css/bootstrap.min.css')?>">
     <link rel="icon" href="<?= base_url('assets/img/responsabilite-sociale.png')?>">
-    <title>Sing Up Takalo Takalo</title>
+    <title>Gestion de Catégorie</title>
 </head>
 <body>
     <nav id="mainNav" class="navbar navbar-light navbar-expand-md fixed-top navbar-shrink py-3">
@@ -17,36 +17,96 @@
             </a>
             <div id="navcol-1" class="collapse navbar-collapse">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Log In</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="#">Sign Up</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Admin Logged In</a></li>
                 </ul>
+
+                <a class="btn btn-danger shadow" role="button" href="#">Log Out</a>
             </div>
         </div>
     </nav>
     <section class="py-4 py-md-5 my-5">
-    <div class="container py-md-5">
-        <div class="row">
-            <div class="col-md-6 text-center"><img class="img-fluid w-75" src="<?= base_url('assets/img/signup.png')?>" /></div>
-            <div class="col-md-5 col-xl-4 text-center text-md-start">
-                <h2 class="display-6 fw-bold mb-5"><span class="underline pb-1"><strong>User Sign up</strong></span></h2>
-                <form method="post" action="#">
-                    <div class="mb-3"><input class="shadow-sm form-control" type="text" name="name" placeholder="Nom" /></div>
-                    <div class="mb-3"><input class="shadow-sm form-control" type="text" name="first_name" placeholder="Prenom(s)" /></div>
-                    <div class="mb-3"><input class="shadow-sm form-control" type="email" name="email" placeholder="Email" /></div>
-                    <div class="mb-3"><input class="shadow-sm form-control" type="password" name="password" placeholder="Password" /></div>
-                    <div class="mb-3"><input class="shadow-sm form-control" type="password" name="password_repeat" placeholder="Repeat Password" /></div>
-                    <div class="mb-5"><button class="btn btn-primary shadow" type="submit">S'inscrire</button></div>
-                </form>
+        <div class="container py-md-5">
+            <div class="card-body">
+                <div class="row">
+                    <h2 class="display-6 fw-bold mb-5"><span class="underline pb-1"><strong>Gestion de Catégorie</strong><br /></span></h2>
+                    <div class="col-md-6 text-nowrap">
+                        <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
+                            <div class="btn-group" role="group">
+                                <a class="btn btn-secondary" href="#">Akanjo</a>
+                                <a class="btn btn-secondary" href="#">Boky</a>
+                                <a class="btn btn-secondary" href="#">Kilalao</a>
+                                <a class="btn btn-secondary active" href="#">Non Classé</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                <div class="mb-2">
-                    <p>Vous avez déja un compte? 
-                        <a class="btn btn-secondary shadow" role="button" href="#">Se connecter</a>
-                    </p>
+                <div id="dataTable" class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info">
+                    <table id="dataTable" class="table my-0">
+                        <thead>
+                            <tr>
+                                <th>Nom Produit</th>
+                                <th>Catégorie</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>iPhone</td>
+                                <td>Néant</td>
+                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
+                            </tr>
+                            <tr>
+                                <td>MacBook</td>
+                                <td>Néant</td>
+                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
+                            </tr>
+                            <tr>
+                                <td>Tee-Shirt</td>
+                                <td>Néant<br /></td>
+                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
+                            </tr>
+                            <tr>
+                                <td>Autocolants</td>
+                                <td>Néant<br /></td>
+                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
+                            </tr>
+                            <tr>
+                                <td>Chargeur</td>
+                                <td>Néant</td>
+                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
+                            </tr>
+                            <tr>
+                                <td>Tomobile Kely</td>
+                                <td>Néant<br /></td>
+                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
+                            </tr>
+                            <tr>
+                                <td>Saribakoly</td>
+                                <td>Néant<br /></td>
+                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
+                            </tr>
+                            <tr>
+                                <td>Kanety</td>
+                                <td>Néant<br /></td>
+                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
+                            </tr>
+                            <tr>
+                                <td>Lovako</td>
+                                <td>Néant<br /></td>
+                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
+                            </tr>
+                            <tr>
+                                <td>Ohabolana Malagasy</td>
+                                <td>Néant<br /></td>
+                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
     <footer>
         <div class="container py-4 py-lg-5">
             <hr />
