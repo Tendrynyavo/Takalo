@@ -16,10 +16,7 @@ class User_model extends CI_Model {
         $sql = sprintf($sql, $this->db->escape($user_email), $this->db->escape($user_mdp));
         $query = $this->db->query($sql);
         $array = convert_to_array($query);
-        if ($array[0]!=null) {
-            # code...
-            return $array;
-        }
+        return $array;
     }
     
 /// Fonction pour verifier si le compte est un administrateur
@@ -28,10 +25,7 @@ class User_model extends CI_Model {
         $sql = sprintf($sql, $this->db->escape($user_email), $this->db->escape($user_mdp), 10);
         $query = $this->db->query($sql);
         $array = convert_to_array($query);
-        if ($array[0]!=null) {
-            # code...
-            return $array;
-        }
+        return $array;
     }
 
 /// Fonction s'inscrire sur le site
