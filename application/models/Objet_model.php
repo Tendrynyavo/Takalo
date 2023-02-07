@@ -17,6 +17,14 @@ class Objet_model extends CI_Model {
         $query = $this->db->query($sql); 
         return convert_to_array($query);
     }
+
+/// Fonction pour obtenir un objet par son idcategorie
+    public function get_by_idcategorie($id_categorie = 1) {
+        $sql='SELECT * FROM objet WHERE idCategorie = %d';
+        $sql = sprintf($sql, $this->db->escape($id_categorie));
+        $query = $this->db->query($sql); 
+        return convert_to_array($query);
+    }
     
 /// Fonction pour modifier la catégorie d'un objet
     public function modif_categorie($id_categorie = '', $id_objet='') {
