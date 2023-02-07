@@ -18,7 +18,7 @@ CREATE TABLE user(
 CREATE TABLE objet(
     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idUser int REFERENCES user(id),
-    nom VARCHAR(50),
+    nom VARCHAR(50) NOT NULL,
     idCategorie int REFERENCES categorie(id),
     descr TEXT NOT NULL,
     prix DOUBLE PRECISION
