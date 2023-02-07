@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User_model extends CI_Model {
 
-/// Fonction pour prendre tous les users limités à 10
+/// Fonction pour lister tous les users
     public function get_users() {
         $query = $this->db->query('SELECT * FROM user'); 
         return convert_to_array($query);
