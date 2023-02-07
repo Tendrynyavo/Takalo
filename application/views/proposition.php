@@ -24,6 +24,8 @@
 
     <!-- Section-->
     <section class="py-5">
+        <?php for ($i=0; $i < 5; $i++) { ?>
+
         <div class="container px-4 px-lg-5 mt-5">
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                 <!-- Anazy -->
@@ -50,20 +52,17 @@
                     </div>
                 </div>
 
-                <!-- Fifanarahana -->
-
+                <!-- Oui ou Non -->
                 <div class="col mb-5">
                     <div class="h-100">
                         <!-- Product image-->
-                        <img class="card-img-top" src="<?= base_url('assets/img/accept.png') ?>" alt="..." />
+                        <img class="card-img-top" src="<?= base_url('assets/img/exchange.png') ?>" alt="..."/>
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
-                                <h4 class="fw-bolder"><strong>Proposer l'échange</strong></h4>
-                                <br>
-                                <br>
-                                <!-- Proposition Button-->
-                                <button class="btn btn-outline-success" type="submit">Proposer</button>
+                                <!-- Action Button-->
+                                <button class="btn btn-outline-success" type="submit">Accepter</button>
+                                <button class="btn btn-outline-danger" type="submit">Refuser</button>
                             </div>
                         </div>
                     </div>
@@ -91,10 +90,11 @@
                             <p><strong>Propriétaire: </strong>Vous</p>
                         </div>
                     </div>
-                </div>
-
+                </div>        
             </div>
         </div>
+        
+        <?php } ?>
     </section>
 
 
