@@ -11,7 +11,7 @@ class Objet_model extends CI_Model {
     }
 
 /// Fonction pour obtenir un objet par son id
-    public function get_by_id($id='') {
+    public function get_by_id($id = 1) {
         $sql='SELECT * FROM objet WHERE id = %d';
         $sql = sprintf($sql, $this->db->escape($id));
         $query = $this->db->query($sql); 
