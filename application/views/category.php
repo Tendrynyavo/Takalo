@@ -32,7 +32,11 @@
                     <ul class="nav nav-tabs">
                         <?php foreach ($categories as $categorie) { ?>
                             <li class="nav-item">
+<<<<<<< HEAD
                                 <a class="nav-link m-2" aria-current="page" href="<?= base_url('index.php/categorie?categorie='. $categorie['id']) ?>"><?=$categorie['nom'] ?></a>
+=======
+                                <a class="nav-link m-2" aria-current="page" href="<?= base_url('index.php/categorie?categorie=' . $categorie['id']) ?>"><?=$categorie['nom'] ?></a>
+>>>>>>> cd00160068662a029e0ed2a8f595976939377d14
                             </li>
                         <?php } ?>
                     </ul>
@@ -51,7 +55,11 @@
                             <?php foreach ($objets as $objet) { ?>
                             <tr>
                                 <td><?=$objet['nom'] ?></td>
+<<<<<<< HEAD
                                 <td><a href=""><button class="btn btn-secondary shadow" type="button">Catégoriser</button></a></td>
+=======
+                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
+>>>>>>> cd00160068662a029e0ed2a8f595976939377d14
                             </tr>
                             <?php } ?>
                         </tbody>

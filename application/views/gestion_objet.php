@@ -42,68 +42,79 @@
                     <table id="dataTable" class="table my-0">
                         <thead>
                             <tr>
-                                <th>Nom Produit</th>
-                                <th>Catégorie</th>
+                                <th>Titre</th>
+                                <th>Description</th>
+                                <th>Photo</th>
+                                <th>Prix Estimatif</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>iPhone</td>
-                                <td>Néant</td>
-                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
+                                <td>14 Pro Max</td>
+                                <td></td>
+                                <td>MGA 7.000.000</td>
+                                <td><button class="btn btn-primary" type="button">Mofidier</button></td>
                             </tr>
                             <tr>
                                 <td>MacBook</td>
-                                <td>Néant</td>
-                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
-                            </tr>
-                            <tr>
-                                <td>Tee-Shirt</td>
-                                <td>Néant<br /></td>
-                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
-                            </tr>
-                            <tr>
-                                <td>Autocolants</td>
-                                <td>Néant<br /></td>
-                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
-                            </tr>
-                            <tr>
-                                <td>Chargeur</td>
-                                <td>Néant</td>
-                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
-                            </tr>
-                            <tr>
-                                <td>Tomobile Kely</td>
-                                <td>Néant<br /></td>
-                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
-                            </tr>
-                            <tr>
-                                <td>Saribakoly</td>
-                                <td>Néant<br /></td>
-                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
-                            </tr>
-                            <tr>
-                                <td>Kanety</td>
-                                <td>Néant<br /></td>
-                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
-                            </tr>
-                            <tr>
-                                <td>Lovako</td>
-                                <td>Néant<br /></td>
-                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
-                            </tr>
-                            <tr>
-                                <td>Ohabolana Malagasy</td>
-                                <td>Néant<br /></td>
-                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
+                                <td>M2 Pro</td>
+                                <td></td>
+                                <td>MGA 12.000.000</td>
+                                <td><button class="btn btn-primary" type="button">Modifier</button></td>
                             </tr>
                         </tbody>
+                        
                     </table>
                 </div>
             </div>
         </div>
+
+        <div class="container">
+            <div class="heading">
+                <h2 class="display-6 fw-bold mb-5"><span class="underline pb-1"><strong>Gestion d'Objet</strong><br /></span></h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <h3><strong> MacBook </strong></h3>
+                    <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover w-50" src="<?= base_url('assets/img/macbook.png')?>" alt="Card Image" /></a>
+                        <br>
+                        <p class="text-muted card-text"><strong>Description: </strong>M2 Pro hiaka farany navoakan'ny Apple</p>
+                        
+                        <p><strong>Prix estimatif: </strong>MGA 10</p>
+
+                        <button class="btn btn-success shadow w-25" type="button"><a href="#" class="text-decoration-none text-white">Mofidier</a></button>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <h3><strong> Baolina </strong></h3>
+                    <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover w-50" src="<?= base_url('assets/img/brazuca.png')?>" alt="Card Image" /></a>
+                        <br>
+                        <p class="text-muted card-text"><strong>Description: </strong>Foot Brazuca tamin'ny Mondial 2018</p>
+                        
+                        <p><strong>Prix estimatif: </strong>MGA 10</p>
+
+                        <button class="btn btn-success shadow w-25" type="button"><a href="#" class="text-decoration-none text-white">Mofidier</a></button>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <h3><strong> Ikotofetsy sy Imahaka </strong></h3>
+                    <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover w-50" src="<?= base_url('assets/img/koto.png')?>" alt="Card Image" /></a>
+                        <br>
+                        <p class="text-muted card-text"><strong>Description: </strong>Boky fam piomehezana tamin'ny taona efa ela be</p>
+                        
+                        <p><strong>Prix estimatif: </strong>MGA 10</p>
+
+                        <button class="btn btn-success shadow w-25" type="button"><a href="#" class="text-decoration-none text-white">Mofidier</a></button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
     </section>
+
+
     
 
     <script src="<?= base_url('assets/bootstrap/js/bootstrap.bundle.min.js')?>"></script>
