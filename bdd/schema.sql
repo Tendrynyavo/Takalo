@@ -12,7 +12,7 @@ CREATE TABLE user(
     prenom VARCHAR(50) DEFAULT NULL,
     email VARCHAR(50) NOT NULL,
     mdp VARCHAR(30) NOT NULL,
-    estAdmin int NOT NULL
+    etat int NOT NULL
 );
 
 CREATE TABLE objet(
@@ -33,5 +33,5 @@ CREATE TABLE echange(
     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idObjet1 int NOT NULL REFERENCES objet(id),
     idObjet2 int NOT NULL REFERENCES objet(id),
-    submitted int NOT NULL
+    etat int NOT NULL
 );
