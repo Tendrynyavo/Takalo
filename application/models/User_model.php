@@ -18,6 +18,7 @@ class User_model extends CI_Model {
         $array = convert_to_array($query);
         if ($array[0]!=null) {
             # code...
+            echo $array[0]['nom'];
             return $array;
         }
     }
@@ -27,9 +28,14 @@ class User_model extends CI_Model {
         $sql = 'SELECT * FROM user WHERE email = %s AND mdp = %s';
         $sql = sprintf($sql, $this->db->escape($user_email), $this->db->escape($user_mdp));
         $query = $this->db->query($sql);
-        if ($array[0]['estAadmin']==10) {
+        $array = convert_to_array($query);
+        if ($array[0]['estAdmin']==10) {
             # code...
+            echo 'true';
             return $array;
+        }
+        else {
+            echo 'false';
         }
     }
 
