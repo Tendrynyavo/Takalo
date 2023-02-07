@@ -17,7 +17,7 @@
             </a>
             <div id="navcol-1" class="collapse navbar-collapse">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#">Log Up</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Log In</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Sign Up</a></li>
                 </ul>
             </div>
