@@ -29,18 +29,23 @@
             <div class="card-body">
                 <div class="row">
                     <h2 class="display-6 fw-bold mb-5"><span class="underline pb-1"><strong>Gestion de Catégorie</strong><br /></span></h2>
-                    <div class="col-md-6 text-nowrap">
-                        <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
-                            <div class="btn-group" role="group">
-                                <a class="btn btn-secondary" href="#">Akanjo</a>
-                                <a class="btn btn-secondary" href="#">Boky</a>
-                                <a class="btn btn-secondary" href="#">Kilalao</a>
-                                <a class="btn btn-secondary active" href="#">Non Classé</a>
-                            </div>
-                        </div>
-                    </div>
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link m-2" aria-current="page" href="#">Akanjo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link m-2" aria-current="page" href="#">Boky</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link m-2" aria-current="page" href="#">Kilalao</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link m-2 active" aria-current="page" href="#">Non Classé</a>
+                        </li>
+                    </ul>
                 </div>
-
+            </div>
+            <div class="card-body">
                 <div id="dataTable" class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info">
                     <table id="dataTable" class="table my-0">
                         <thead>
