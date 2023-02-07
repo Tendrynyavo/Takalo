@@ -30,18 +30,11 @@
                 <div class="row">
                     <h2 class="display-6 fw-bold mb-5"><span class="underline pb-1"><strong>Gestion de Catégorie</strong><br /></span></h2>
                     <ul class="nav nav-tabs">
-                        <li class="nav-item">
-                            <a class="nav-link m-2" aria-current="page" href="#">Akanjo</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link m-2" aria-current="page" href="#">Boky</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link m-2" aria-current="page" href="#">Kilalao</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link m-2 active" aria-current="page" href="#">Non Classé</a>
-                        </li>
+                        <?php foreach ($categories as $categorie) { ?>
+                            <li class="nav-item">
+                                <a class="nav-link m-2" aria-current="page" href="<?= base_url('index.php/categorie?categorie='. $categorie['id']) ?>"><?=$categorie['nom'] ?></a>
+                            </li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>
@@ -51,61 +44,16 @@
                         <thead>
                             <tr>
                                 <th>Nom Produit</th>
-                                <th>Catégorie</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <?php foreach ($objets as $objet) { ?>
                             <tr>
-                                <td>iPhone</td>
-                                <td>Néant</td>
-                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
+                                <td><?=$objet['nom'] ?></td>
+                                <td><a href=""><button class="btn btn-secondary shadow" type="button">Catégoriser</button></a></td>
                             </tr>
-                            <tr>
-                                <td>MacBook</td>
-                                <td>Néant</td>
-                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
-                            </tr>
-                            <tr>
-                                <td>Tee-Shirt</td>
-                                <td>Néant<br /></td>
-                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
-                            </tr>
-                            <tr>
-                                <td>Autocolants</td>
-                                <td>Néant<br /></td>
-                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
-                            </tr>
-                            <tr>
-                                <td>Chargeur</td>
-                                <td>Néant</td>
-                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
-                            </tr>
-                            <tr>
-                                <td>Tomobile Kely</td>
-                                <td>Néant<br /></td>
-                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
-                            </tr>
-                            <tr>
-                                <td>Saribakoly</td>
-                                <td>Néant<br /></td>
-                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
-                            </tr>
-                            <tr>
-                                <td>Kanety</td>
-                                <td>Néant<br /></td>
-                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
-                            </tr>
-                            <tr>
-                                <td>Lovako</td>
-                                <td>Néant<br /></td>
-                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
-                            </tr>
-                            <tr>
-                                <td>Ohabolana Malagasy</td>
-                                <td>Néant<br /></td>
-                                <td><button class="btn btn-secondary shadow" type="button">Catégoriser</button></td>
-                            </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
