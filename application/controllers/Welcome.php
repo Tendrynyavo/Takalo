@@ -21,7 +21,7 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$data = array();
-		$data['content'] = 'liste_objet';
+		$data['content'] = 'gestion_objet';
 		$this->load->view('template', $data);
 		
 	}		

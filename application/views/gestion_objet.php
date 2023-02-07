@@ -17,7 +17,7 @@
             </a>
             <div id="navbarResponsive" class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#">Liste Objet</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#">Annonces</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#">Echanges</a></li>
                 </ul>
                 
@@ -30,51 +30,54 @@
             </div>
         </div>
     </nav>
-    <section class="py-4 py-md-5 my-5">
-        <div class="container">
-            <div class="heading">
-                <h2 class="display-6 fw-bold mb-5"><span class="underline pb-1"><strong>Gestion d'Objet</strong><br /></span></h2>
+
+
+    <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Voici vos Objets</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Ici vous pouvez apporter des modifications</p>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-md-6 col-lg-4">
-                    <h3><strong> MacBook </strong></h3>
-                    <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover w-50" src="<?= base_url('assets/img/macbook.png')?>" alt="Card Image" /></a>
-                        <br>
-                        <p class="text-muted card-text"><strong>Description: </strong>M2 Pro hiaka farany navoakan'ny Apple</p>
-                        
-                        <p><strong>Prix estimatif: </strong>MGA 10</p>
+        </header>
+    
+    <!-- Section-->
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
-                        <button class="btn btn-success shadow w-25" type="button"><a href="#" class="text-decoration-none text-white">Mofidier</a></button>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <h3><strong> Baolina </strong></h3>
-                    <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover w-50" src="<?= base_url('assets/img/brazuca.png')?>" alt="Card Image" /></a>
-                        <br>
-                        <p class="text-muted card-text"><strong>Description: </strong>Foot Brazuca tamin'ny Mondial 2018</p>
-                        
-                        <p><strong>Prix estimatif: </strong>MGA 10</p>
-
-                        <button class="btn btn-success shadow w-25" type="button"><a href="#" class="text-decoration-none text-white">Mofidier</a></button>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <h3><strong> Ikotofetsy sy Imahaka </strong></h3>
-                    <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover w-50" src="<?= base_url('assets/img/koto.png')?>" alt="Card Image" /></a>
-                        <br>
-                        <p class="text-muted card-text"><strong>Description: </strong>Boky fam piomehezana tamin'ny taona efa ela be</p>
-                        
-                        <p><strong>Prix estimatif: </strong>MGA 10</p>
-
-                        <button class="btn btn-success shadow w-25" type="button"><a href="#" class="text-decoration-none text-white">Mofidier</a></button>
-                    </div>
-                </div>
+                <?php for ($i=0; $i < 3; $i++) { ?>
                 
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <img class="card-img-top" src="<?= base_url('assets/img/macbook.png') ?>" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h4 class="fw-bolder"><strong>MacBook</strong></h4>
+                                    <!-- Product price-->
+                                    $2400
+                                    <br>
+                                    <br>
+                                </div>
+                                <!-- Product description-->
+                                <p><strong>Description: </strong>M2 Pro tena hiaka farany an'ny Apple</p>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Modifier</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+                <?php } ?>
+
+                </div>
             </div>
-        </div>
-    </section>
-
-
+        </section>
     
 
     <script src="<?= base_url('assets/bootstrap/js/bootstrap.bundle.min.js')?>"></script>
