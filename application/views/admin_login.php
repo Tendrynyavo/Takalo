@@ -17,9 +17,8 @@
             </a>
             <div id="navcol-1" class="collapse navbar-collapse">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link active" href="login.html">Log in</a></li>
-                    <li class="nav-item"><a class="nav-link" href="signup.html">Sign up</a></li>
-                </ul><a class="btn btn-primary shadow" role="button" href="signup.html">Sign up</a>
+                    <li class="nav-item"><a class="nav-link active" href="#">Log in (Admin)</a></li>
+                </ul>
             </div>
         </div>
     </nav>

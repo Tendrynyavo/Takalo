@@ -17,7 +17,7 @@
             </a>
             <div id="navcol-1" class="collapse navbar-collapse">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Log Up</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Log In</a></li>
                     <li class="nav-item"><a class="nav-link active" href="#">Sign Up</a></li>
                 </ul>
             </div>
@@ -29,7 +29,7 @@
             <div class="col-md-6 text-center"><img class="img-fluid w-75" src="<?= base_url('assets/img/signup.png')?>" /></div>
             <div class="col-md-5 col-xl-4 text-center text-md-start">
                 <h2 class="display-6 fw-bold mb-5"><span class="underline pb-1"><strong>User Sign up</strong></span></h2>
-                <form method="post">
+                <form method="post" action="#">
                     <div class="mb-3"><input class="shadow-sm form-control" type="text" name="name" placeholder="Nom" /></div>
                     <div class="mb-3"><input class="shadow-sm form-control" type="text" name="first_name" placeholder="Prenom(s)" /></div>
                     <div class="mb-3"><input class="shadow-sm form-control" type="email" name="email" placeholder="Email" /></div>
