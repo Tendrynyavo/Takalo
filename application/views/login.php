@@ -38,7 +38,7 @@
 
                     <div class="mb-2">
                             <p>Vous n'avez pas de compte? 
-                                <a class="btn btn-secondary shadow" role="button" href="#">S'inscrire</a>
+                                <a class="btn btn-secondary shadow" role="button" href="<?= base_url('index.php/sign_up') ?>">S'inscrire</a>
                             </p>
                     </div>
                 </div>
