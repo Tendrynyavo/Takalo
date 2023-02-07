@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Login extends CI_Controller {
+class Admin extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
@@ -10,16 +10,16 @@ class Login extends CI_Controller {
 	}
 
 	public function index() {
-		$this->load->view('login');
+		$this->load->view('admin_login');
 	}
 
 	public function check() {
-		$user = $this->user_model->check_user($this->input->post('email'), $this->input->post('password'));
+		$user = $this->user_model->check_admin($this->input->post('email'), $this->input->post('password'));
 		if (count($user) > 0) {
 			$this->session->set_userdata('user', $user[0]);
-			echo $this->session->user['email'];
+			redirect(base_url('index.php/categorie/gestion'));
 		} else {
-			redirect(base_url('index.php/login'));
+			redirect(base_url('index.php/admin_login'));
 		}
 	}
 }
