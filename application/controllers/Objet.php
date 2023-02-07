@@ -23,6 +23,14 @@ class Objet extends CI_Controller {
         $data['content'] = 'gestion_objet';
 		$this->load->view('template', $data);
 	}
+    
+    public function echange() {
+        $data = array();
+        $data['user'] = $this->session->user;
+        $data['objets'] = $this->objet_model->get_by_id($this->session->user['id']);
+        $data['content'] = 'gestion_objet';
+		$this->load->view('template', $data);
+	}
 
 
 }
