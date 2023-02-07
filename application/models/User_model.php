@@ -34,6 +34,13 @@ class User_model extends CI_Model {
         $sql = sprintf($sql, $this->db->escape($nom), $this->db->escape($prenom), $this->db->escape($user_email), $this->db->escape($user_mdp));
         $query = $this->db->query($sql);
     }
+
+/// Fonction pour obtenir le nombre d'utilisateurs inscrits
+    public function get_count() {
+        $sql='SELECT count(*) nb_user FROM user';
+        $query = $this->db->query($sql); 
+        return convert_to_array($query);
+    }
 }
 ?>
 

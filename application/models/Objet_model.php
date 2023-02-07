@@ -46,6 +46,16 @@ class Objet_model extends CI_Model {
         $sql = sprintf($sql, $this->db->escape($id_user), $this->db->escape($nom), $this->db->escape($id_categorie), $this->db->escape($descr), $this->db->escape($prix));
         $query = $this->db->query($sql);
     }
+
+/// Fonction de recherche
+    public function rechercher_objet($mot_cle='', $categorie='') {
+        $mc='%'.$mot_cle.'%';
+        $sql="SELECT * FROM objet WHERE nom LIKE %s AND idCategorie = %s";
+        $sql = sprintf($sql, $this->db->escape($mc), $this->db->escape($categorie));
+        $query = $this->db->query($sql); 
+        return convert_to_array($query);
+    }
+    
 }
 ?>
 
