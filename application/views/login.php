@@ -29,9 +29,9 @@
                 <div class="col-md-6 text-center"><img class="img-fluid w-50" src="<?= base_url('assets/img/networking.png')?>" /></div>
                 <div class="col-md-5 col-xl-4 text-center text-md-start">
                     <h2 class="display-6 fw-bold mb-5"><span class="underline pb-1"><strong>User Login</strong><br /></span></h2>
-                    <form method="post" action="<?=base_url('login/check') ?>">
-                        <div class="mb-3"><input class="shadow form-control" type="email" name="email" placeholder="Email" /></div>
-                        <div class="mb-3"><input class="shadow form-control" type="password" name="password" placeholder="Password" /></div>
+                    <form method="post" action="<?=base_url('index.php/login/check') ?>">
+                        <div class="mb-3"><input class="shadow form-control" type="email" name="email" placeholder="Email" value="tendrynyavo@gmail.com" /></div>
+                        <div class="mb-3"><input class="shadow form-control" type="password" name="password" placeholder="Password" value="2070" /></div>
                         <div class="mb-5"><button class="btn btn-primary shadow" type="submit">Se Connecter</button></div>
                         <p class="text-muted"></p>
                     </form>
