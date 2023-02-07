@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Test extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
-		$this->load->model('user_model');
+		$this->load->model('categorie_model');
 	}
 
 	public function test() {
@@ -22,7 +22,7 @@ class Test extends CI_Controller {
 	}
 
     public function test_func(){
-        $this->user_model->check_user('timmypablojamon@gmail.com', '1928');
+        $this->categorie_model->get_categorie('timmypablojamon@gmail.com', '1928');
     }
 }	
 
