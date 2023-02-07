@@ -11,7 +11,7 @@ class Sign_up extends CI_Controller {
 		$this->load->view('signup');
 	}
 
-	public function sign_up() {
+	public function insert() {
 		$this->load->model('user_model');
 		if ($this->input->post('password') != $this->input->post('password_repeat')) redirect(base_url('index.php/sign_up'));
 		$this->user_model->sign_up($this->input->post('name'), $this->input->post('prenom'), $this->input->post('email'), $this->input->post('password'));
