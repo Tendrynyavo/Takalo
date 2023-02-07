@@ -1,16 +1,11 @@
 CREATE DATABASE takalo;
 USE takalo;
 
-CREATE TABLE bool(
-  id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  value VARCHAR(10)
-);
-
 CREATE TABLE user(
     id int AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(50) NOT NULL,
     mdp VARCHAR(30) NOT NULL,
-    estAdmin int NOT NULL REFERENCES bool(id)
+    estAdmin int NOT NULL
 );
 
 CREATE TABLE objet(
@@ -30,7 +25,7 @@ CREATE TABLE echange(
     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idObjet1 int NOT NULL REFERENCES objet(id),
     idObjet2 int NOT NULL REFERENCES objet(id),
-    submitted int NOT NULL REFERENCES bool(id)
+    submitted int NOT NULL
 );
 
 INSERT INTO bool (value) VALUES
