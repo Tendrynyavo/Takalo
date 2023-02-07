@@ -4,7 +4,7 @@ INSERT INTO categorie(nom) VALUES
 ('Kilalao'),
 ('Non-catégorisé');
 
-INSERT INTO user(nom, prenom, email, mdp, estAdmin) VALUES
+INSERT INTO user(nom, prenom, email, mdp, etat) VALUES
 ('Ilohity', '', 'timmypablojamon@gmail.com', '1928', 10),
 ('Tendry', '', 'tendrynyavo@gmail.com', '2070', 10),
 ('Mpiahy', '', 'mpiahysoa@gmail.com', '2036', 10),
