@@ -31,46 +31,6 @@
         </div>
     </nav>
     <section class="py-4 py-md-5 my-5">
-        <div class="container py-md-5">
-            <div class="card-body">
-                <div class="row">
-                    <h2 class="display-6 fw-bold mb-5"><span class="underline pb-1"><strong>Gestion d'Objet</strong><br /></span></h2>
-                </div>
-            </div>
-            <div class="card-body">
-                <div id="dataTable" class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info">
-                    <table id="dataTable" class="table my-0">
-                        <thead>
-                            <tr>
-                                <th>Titre</th>
-                                <th>Description</th>
-                                <th>Photo</th>
-                                <th>Prix Estimatif</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>iPhone</td>
-                                <td>14 Pro Max</td>
-                                <td></td>
-                                <td>MGA 7.000.000</td>
-                                <td><button class="btn btn-primary" type="button">Mofidier</button></td>
-                            </tr>
-                            <tr>
-                                <td>MacBook</td>
-                                <td>M2 Pro</td>
-                                <td></td>
-                                <td>MGA 12.000.000</td>
-                                <td><button class="btn btn-primary" type="button">Modifier</button></td>
-                            </tr>
-                        </tbody>
-                        
-                    </table>
-                </div>
-            </div>
-        </div>
-
         <div class="container">
             <div class="heading">
                 <h2 class="display-6 fw-bold mb-5"><span class="underline pb-1"><strong>Gestion d'Objet</strong><br /></span></h2>
