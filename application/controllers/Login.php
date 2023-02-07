@@ -6,7 +6,6 @@ class Login extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('user_model');
-		$this->load->library('session');
 	}
 
 	public function index() {
@@ -17,9 +16,14 @@ class Login extends CI_Controller {
 		$user = $this->user_model->check_user($this->input->post('email'), $this->input->post('password'));
 		if (count($user) > 0) {
 			$this->session->set_userdata('user', $user[0]);
-			echo $this->session->user['email'];
+			redirect(base_url('index.php/objet'));
 		} else {
 			redirect(base_url('index.php/login'));
 		}
+	}
+
+	public function deconnecte() {
+		unset($_SESSION['user']);
+		redirect(base_url('index.php/login'));
 	}
 }
