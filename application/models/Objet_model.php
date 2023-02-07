@@ -27,16 +27,15 @@ class Objet_model extends CI_Model {
 
 /// Fonction pour modifier un objet
     public function modif_objet($nom='', $descr='', $prix='', $id_objet='') {
-        $sql = 'UPDATE objet SET idCategorie = %d, nom=%s, descr = %s,  prix = %d WHERE id = %d';
-        $sql = sprintf($sql, $this->db->escape($id_categorie), $this->db->escape($nom), $this->db->escape($descr), $this->db->escape($prix), $this->db->escape($id_objet));
+        $sql = 'UPDATE objet SET nom=%s, descr = %s,  prix = %d WHERE id = %d';
+        $sql = sprintf($sql, $this->db->escape($nom), $this->db->escape($descr), $this->db->escape($prix), $this->db->escape($id_objet));
         $query = $this->db->query($sql);
     }    
 
-
 /// Fonction ajouter un objet au site
-    public function ajouter_objet($id_user='', $id_categorie='', $descr = '', $prix='') {
-        $sql = 'INSERT INTO objet (idUser, idCategorie, descr, prix) VALUES (%s, %s, %s, %s)';
-        $sql = sprintf($sql, $this->db->escape($id_user), $this->db->escape($id_categorie), $this->db->escape($descr), $this->db->escape($prix));
+    public function ajouter_objet($id_user='',$nom='', $id_categorie='', $descr = '', $prix='') {
+        $sql = 'INSERT INTO objet (idUser, nom, idCategorie, descr, prix) VALUES (%s, %s, %s, %s, %d)';
+        $sql = sprintf($sql, $this->db->escape($id_user), $this->db->escape($nom), $this->db->escape($id_categorie), $this->db->escape($descr), $this->db->escape($prix));
         $query = $this->db->query($sql);
     }
 }
