@@ -9,32 +9,6 @@
     <title>Gestion d'objet</title>
 </head>
 <body>
-<<<<<<< HEAD
-=======
-    <nav id="mainNav" class="bg-light navbar navbar-light navbar-expand-md fixed-top navbar-shrink py-3">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="<?php echo base_url('assets/img/logo.png'); ?>" width="35px" height="35px">
-                <span>Takalo Takalo</span>
-            </a>
-            <div id="navbarResponsive" class="collapse navbar-collapse">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#">Annonces</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#">Echanges</a></li>
-                </ul>
-                
-                <ul class="navbar-nav mx-auto">
-                <img src="<?php echo base_url('assets/img/user.png'); ?>" width="35px" height="35px">
-                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/objet/gestion'); ?>"><?php echo $user['nom']; ?></a></li>
-                </ul>
-
-                <a class="btn btn-danger shadow" role="button" href="<?php echo base_url('index.php/login/deconnecte'); ?>">Se Déconnecter</a>
-            </div>
-        </div>
-    </nav>
-
-
->>>>>>> 606b8e900591c8530a96e96752fed6437de3cfd6
     <!-- Header-->
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">

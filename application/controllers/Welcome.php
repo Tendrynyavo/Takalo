@@ -21,7 +21,7 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$data = array();
-		$data['content'] = 'echanger_objet';
+		$data['content'] = 'proposition';
 		$this->load->view('template', $data);
 		
 	}		
