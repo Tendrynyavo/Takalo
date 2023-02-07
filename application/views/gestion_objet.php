@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?= base_url('assets/bootstrap/css/bootstrap.min.css')?>">
-    <link rel="icon" href="<?= base_url('assets/img/responsabilite-sociale.png')?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css'); ?>">
+    <link rel="icon" href="<?php echo base_url('assets/img/responsabilite-sociale.png'); ?>">
     <title>Gestion d'objet</title>
 </head>
 <body>
     <nav id="mainNav" class="bg-light navbar navbar-light navbar-expand-md fixed-top navbar-shrink py-3">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="<?= base_url('assets/img/logo.png')?>" width="35px" height="35px">
+                <img src="<?php echo base_url('assets/img/logo.png'); ?>" width="35px" height="35px">
                 <span>Takalo Takalo</span>
             </a>
             <div id="navbarResponsive" class="collapse navbar-collapse">
@@ -22,11 +22,11 @@
                 </ul>
                 
                 <ul class="navbar-nav mx-auto">
-                <img src="<?= base_url('assets/img/user.png')?>" width="35px" height="35px">
-                    <li class="nav-item"><a class="nav-link" href="#">Tendry</a></li>
+                <img src="<?php echo base_url('assets/img/user.png'); ?>" width="35px" height="35px">
+                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/objet/gestion'); ?>"><?php echo $user['nom']; ?></a></li>
                 </ul>
 
-                <a class="btn btn-danger shadow" role="button" href="#">Se Déconnecter</a>
+                <a class="btn btn-danger shadow" role="button" href="<?php echo base_url('index.php/login/deconnecte'); ?>">Se Déconnecter</a>
             </div>
         </div>
     </nav>
@@ -80,6 +80,6 @@
         </section>
     
 
-    <script src="<?= base_url('assets/bootstrap/js/bootstrap.bundle.min.js')?>"></script>
+    <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
 </body>
 </html>
