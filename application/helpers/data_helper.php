@@ -3,7 +3,7 @@
     if (!function_exists('convert_to_array')) {
 /// Fonction pour convertir les resultats des requetes en tableau
         function convert_to_array($query) {
-            $array = [];
+            $array = array();
             foreach ($query->result_array() as $rows) {
                 $array[] = $rows;
             }
