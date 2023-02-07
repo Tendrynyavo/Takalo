@@ -18,6 +18,7 @@ class User_model extends CI_Model {
         $array = convert_to_array($query);
         if ($array[0]!=null) {
             # code...
+            return $array;
         }
     }
     
@@ -28,6 +29,15 @@ class User_model extends CI_Model {
         $query = $this->db->query($sql);
         if ($array[0]['estAadmin']==10) {
             # code...
+            return $array;
         }
     }
+
+/// Fonction s'inscrire sur le site
+    public function check_admin($nom='', $prenom='', $user_email = '', $user_mdp='') {
+        $sql = 'INSERT INTO user(nom, prenom, email, mdp, estAdmin) VALUES ('%s', '%s', '%s', '%s', 0)';
+        $sql = sprintf($sql, $this->db->escape($nom), $this->db->escape($prenom), $this->db->escape($user_email), $this->db->escape($user_mdp));
+        $query = $this->db->query($sql);
+    }
+}
 }
