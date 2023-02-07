@@ -24,13 +24,10 @@ class User_model extends CI_Model {
     
 /// Fonction pour verifier si le compte est un administrateur
     public function check_admin($user_email = '', $user_mdp='') {
-        $sql = 'SELECT * FROM user WHERE email = %s AND mdp = %s';
-        $sql = sprintf($sql, $this->db->escape($user_email), $this->db->escape($user_mdp));
+        $sql = 'SELECT * FROM user WHERE email = %s AND mdp = %s AND estAdmin= %d';
+        $sql = sprintf($sql, $this->db->escape($user_email), $this->db->escape($user_mdp), 10);
         $query = $this->db->query($sql);
-        if ($array[0]['estAadmin']==10) {
-            # code...
-            return $array;
-        }
+        return $array;
     }
 
 /// Fonction s'inscrire sur le site

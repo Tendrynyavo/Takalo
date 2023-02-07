@@ -29,7 +29,7 @@
                 <div class="col-md-6 text-center"><img class="img-fluid w-50" src="<?= base_url('assets/img/networking.png')?>" /></div>
                 <div class="col-md-5 col-xl-4 text-center text-md-start">
                     <h2 class="display-6 fw-bold mb-5"><span class="underline pb-1"><strong>User Login</strong><br /></span></h2>
-                    <form method="post" action="#">
+                    <form method="post" action="<?=base_url('login/check') ?>">
                         <div class="mb-3"><input class="shadow form-control" type="email" name="email" placeholder="Email" /></div>
                         <div class="mb-3"><input class="shadow form-control" type="password" name="password" placeholder="Password" /></div>
                         <div class="mb-5"><button class="btn btn-primary shadow" type="submit">Se Connecter</button></div>
