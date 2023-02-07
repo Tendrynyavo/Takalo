@@ -22,7 +22,7 @@ class Test extends CI_Controller {
 	}
 
     public function test_func(){
-        $this->user_model->check_admin('mp@gmail.com', '1234');
+        $this->user_model->check_user('timmypablojamon@gmail.com', '1928');
     }
 }	
 

@@ -18,7 +18,6 @@ class User_model extends CI_Model {
         $array = convert_to_array($query);
         if ($array[0]!=null) {
             # code...
-            echo $array[0]['nom'];
             return $array;
         }
     }
@@ -29,15 +28,10 @@ class User_model extends CI_Model {
         $sql = sprintf($sql, $this->db->escape($user_email), $this->db->escape($user_mdp), 10);
         $query = $this->db->query($sql);
         $array = convert_to_array($query);
-        if ($array[0]['estAdmin']==10) {
+        if ($array[0]!=null) {
             # code...
-            echo 'true';
             return $array;
         }
-        else {
-            echo 'false';
-        }
-        return $array;
     }
 
 /// Fonction s'inscrire sur le site
