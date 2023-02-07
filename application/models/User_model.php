@@ -35,7 +35,7 @@ class User_model extends CI_Model {
 
 /// Fonction s'inscrire sur le site
     public function sign_up($nom='', $prenom='', $user_email = '', $user_mdp='') {
-        $sql = 'INSERT INTO user(nom, prenom, email, mdp, estAdmin) VALUES ('%s', '%s', '%s', '%s', 0)';
+        $sql = 'INSERT INTO user(nom, prenom, email, mdp, estAdmin) VALUES (%s, %s, %s, %s, 0)';
         $sql = sprintf($sql, $this->db->escape($nom), $this->db->escape($prenom), $this->db->escape($user_email), $this->db->escape($user_mdp));
         $query = $this->db->query($sql);
     }
