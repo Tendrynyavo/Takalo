@@ -1,8 +1,15 @@
 CREATE DATABASE takalo;
 USE takalo;
 
+CREATE TABLE categorie(
+    id int AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50)
+);
+
 CREATE TABLE user(
     id int AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) DEFAULT NULL,
+    penom VARCHAR(50) DEFAULT NULL,
     email VARCHAR(50) NOT NULL,
     mdp VARCHAR(30) NOT NULL,
     estAdmin int NOT NULL
@@ -28,13 +35,9 @@ CREATE TABLE echange(
     submitted int NOT NULL
 );
 
-INSERT INTO bool (value) VALUES
-('true'),
-('false');
-
-INSERT INTO user(email, mdp, estAdmin) VALUES
-('timmypablojamon@gmail.com', '1928', 1),
-('tendrynyavo@gmail.com', '2070', 1),
-('mpiahysoa@gmail.com', '2036', 1),
-('bob@gmail.com', '1234', 2);
+INSERT INTO user(nom, prenom, email, mdp, estAdmin) VALUES
+('Ilohity', '', 'timmypablojamon@gmail.com', '1928', 1),
+('Tendry', '', 'tendrynyavo@gmail.com', '2070', 1),
+('Mpiahy', '', 'mpiahysoa@gmail.com', '2036', 1),
+('Bob', 'Stone', 'bob@gmail.com', '1234', 2);
 
