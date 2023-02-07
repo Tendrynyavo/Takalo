@@ -22,7 +22,7 @@ class Test extends CI_Controller {
 	}
 
     public function test_func(){
-        $this->categorie_model->get_categorie('timmypablojamon@gmail.com', '1928');
+        $this->categorie_model->get_by_id();
     }
 }	
 
