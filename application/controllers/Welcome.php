@@ -20,7 +20,9 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('category');
+		$data = array();
+		$data['content'] = 'admin_login';
+		$this->load->view('template', $data);
 		
 	}		
 
