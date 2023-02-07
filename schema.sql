@@ -9,7 +9,7 @@ CREATE TABLE categorie(
 CREATE TABLE user(
     id int AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(50) DEFAULT NULL,
-    penom VARCHAR(50) DEFAULT NULL,
+    prenom VARCHAR(50) DEFAULT NULL,
     email VARCHAR(50) NOT NULL,
     mdp VARCHAR(30) NOT NULL,
     estAdmin int NOT NULL
