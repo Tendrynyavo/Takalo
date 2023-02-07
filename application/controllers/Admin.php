@@ -17,9 +17,9 @@ class Admin extends CI_Controller {
 		$user = $this->user_model->check_admin($this->input->post('email'), $this->input->post('password'));
 		if (count($user) > 0) {
 			$this->session->set_userdata('user', $user[0]);
-			redirect(base_url('index.php/categorie/gestion'));
+			redirect(base_url('index.php/categorie'));
 		} else {
-			redirect(base_url('index.php/admin_login'));
+			redirect(base_url('index.php/admin'));
 		}
 	}
 }
