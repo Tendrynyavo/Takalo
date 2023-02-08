@@ -19,7 +19,7 @@ class Objet_model extends CI_Model {
     }
 
 /// Fonction pour obtenir les objet n'appartenat pas à un utilisateur en utilisant son id
-    public function get_by_id($id = 1) {
+    public function get_not_owned($id = 1) {
         $sql='SELECT * FROM objet WHERE NOT id = %s';
         $sql = sprintf($sql, $this->db->escape($id));
         $query = $this->db->query($sql); 
