@@ -76,7 +76,10 @@ class Echange_model extends CI_Model {
         $sql4 = 'UPDATE objet SET etat=0 WHERE id=%s OR id=%s';
         $sql4 = sprintf($sql4, $this->db->escape($id_objet1), $this->db->escape($id_objet2));
         $this->db->query($sql4);
+        echo $sql1;
         echo $sql2;
+        echo $sql3;
+        echo $sql4;
     }
 
 /// Fonction pour annuler un échange

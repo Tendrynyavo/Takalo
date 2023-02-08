@@ -18,22 +18,22 @@
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- Product image-->
-                        <img class="card-img-top" src="<?php echo base_url($proposition['objet1']['photo'][0]['photo']); ?>" alt="..." width="284px"
+                        <img class="card-img-top" src="<?php echo base_url($proposition['objet2']['photo'][0]['photo']); ?>" alt="..." width="284px"
                             height="177px" />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h4 class="fw-bolder"><strong><?php echo $proposition['objet1']['nom']; ?></strong></h4>
+                                <h4 class="fw-bolder"><strong><?php echo $proposition['objet2']['nom']; ?></strong></h4>
                                 <!-- Product price-->
-                                <?php echo $proposition['objet1']['prix']; ?>
+                                <?php echo $proposition['objet2']['prix']; ?>
                                 <br>
                                 <br>
                             </div>
                             <!-- Product description-->
-                            <p><strong>Description: </strong><?php echo $proposition['objet1']['descr']; ?></p>
+                            <p><strong>Description: </strong><?php echo $proposition['objet2']['descr']; ?></p>
                             <!-- Product property-->
-                            <p><strong>Propriétaire: </strong><?php echo $proposition['objet1']['user']; ?></p>
+                            <p><strong>Propriétaire: </strong><?php echo $proposition['objet2']['user']; ?></p>
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Action Button-->
-                                <button class="btn btn-outline-success"><a href="<?php echo base_url('index.php/echange/accepter'); ?>" class="text-decoration-none">Accepter</a></button>
+                                <button class="btn btn-outline-success"><a href="<?php echo base_url('index.php/echange/accepter?id=' . $proposition['objet1']['id'] .'&&choice=' .$proposition['objet2']['id'] . '&&user1=' . $proposition['objet1']['user_id'] . '&&user2=' .$proposition['objet2']['user_id']); ?>" class="text-decoration-none">Accepter</a></button>
                                 <button class="btn btn-outline-danger">Refuser</button>
                             </div>
                         </div>
@@ -58,20 +58,20 @@
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- Product image-->
-                        <img class="card-img-top" src="<?php echo base_url($proposition['objet2']['photo'][0]['photo']); ?>" alt="..."
+                        <img class="card-img-top" src="<?php echo base_url($proposition['objet1']['photo'][0]['photo']); ?>" alt="..."
                             width="284px" height="177px" />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h4 class="fw-bolder"><strong><?php echo $proposition['objet2']['nom']; ?></strong></h4>
+                                <h4 class="fw-bolder"><strong><?php echo $proposition['objet1']['nom']; ?></strong></h4>
                                 <!-- Product price-->
-                                <?php echo $proposition['objet2']['prix']; ?>
+                                <?php echo $proposition['objet1']['prix']; ?>
                                 <br>
                                 <br>
                             </div>
                             <!-- Product description-->
-                            <p><strong>Description: </strong><?php echo $proposition['objet2']['descr']; ?></p>
+                            <p><strong>Description: </strong><?php echo $proposition['objet1']['descr']; ?></p>
                             <!-- Product property-->
                             <p><strong>Propriétaire: </strong>Vous</p>
                         </div>

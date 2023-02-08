@@ -9,12 +9,14 @@ class Echange extends Check_session_user {
 		parent::__construct();
 		$this->load->model('objet_model');
 		$this->load->model('echange_model');
+		$this->load->model('categorie_model');
 	}
 
     public function index() {
         $data = array();
         $data['user'] = $this->session->user;
         $data['id'] = $this->input->get('id');
+        $data['categories'] = $this->categorie_model->get_categorie();
         $data['objet'] = $this->objet_model->get_by_id($data['id']);
         $objects = $this->objet_model->get_by_id_user($data['user']['id']);
 
@@ -29,6 +31,7 @@ class Echange extends Check_session_user {
     public function proposition() {
         $data = array();
         $data['user'] = $this->session->user;
+        $data['categories'] = $this->categorie_model->get_categorie();
         $data['propositions'] = $this->echange_model->get_dipo_by_user($this->session->user['id']);
         $data['content'] = 'proposition';
 		
@@ -41,6 +44,7 @@ class Echange extends Check_session_user {
     }
 
     public function accepter() {
-        
+        $this->echange_model->accepter_echange($this->input->get('id'), $this->input->get('choice'), $this->input->get('user1'), $this->input->get('user2'));
+        redirect(base_url('index.php/echange/proposition'));
     }
 }

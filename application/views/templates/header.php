@@ -32,15 +32,16 @@
                 </ul>
 
                 <!-- RESEARCH FORM -->
-                <form method="get" action="#" class="text-center m-2">
+                <form method="get" action="<?php echo base_url('index.php/objet/search'); ?>" class="text-center m-2">
                     <fieldset>
                         <div class="input-group">
-                            <input id="oSaisie" name="oSaisie" type="text" class="form-control" aria-label="Saisie de mots clés" placeholder="Mot(s) clé(s)" required="required">
-                            <select class="selectpicker" name="choix">
+                            <input id="oSaisie" name="search" type="text" class="form-control" aria-label="Saisie de mots clés" placeholder="Mot(s) clé(s)" required="required">
+                            <select class="selectpicker" name="categorie">
                                 <option selected>Catégorie</option>
-                                <option value="1">Akanjo</option>
-                                <option value="1">Kilalao</option>
-                                <option value="1">Boky</option>
+                                <?php foreach ($categories as $categorie) { ?>
+                                <option value="<?php echo $categorie['id']; ?>"><?php echo $categorie['nom']; ?></option>
+                                <?php } ?>
+                                <option value="-1">Tous</option>
                             </select>
                             <button class="btn btn-outline-dark" type="submit">Rechercher</button>
                         </div>
