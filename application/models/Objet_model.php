@@ -12,7 +12,7 @@ class Objet_model extends CI_Model {
 
 /// Fonction pour obtenir un objet par son id
     public function get_by_id($id = 1) {
-        $sql='SELECT * FROM objet WHERE id = %s';
+        $sql='SELECT * FROM objet o JOIN user u ON o.idUser=u.id WHERE id = %s';
         $sql = sprintf($sql, $this->db->escape($id));
         $query = $this->db->query($sql); 
         return $query->row();
@@ -59,7 +59,7 @@ class Objet_model extends CI_Model {
 
 /// Fonction ajouter un objet au site
     public function ajouter_objet($id_user='',$nom='', $id_categorie='', $descr = '', $prix='') {
-        $sql = 'INSERT INTO objet (idUser, nom, idCategorie, descr, prix) VALUES (%s, %s, %s, %s, %d)';
+        $sql = 'INSERT INTO objet (idUser, nom, idCategorie, descr, prix) VALUES (%s, %s, %s, %s, %s)';
         $sql = sprintf($sql, $this->db->escape($id_user), $this->db->escape($nom), $this->db->escape($id_categorie), $this->db->escape($descr), $this->db->escape($prix));
         $query = $this->db->query($sql);
     }
