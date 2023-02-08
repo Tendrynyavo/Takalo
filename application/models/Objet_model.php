@@ -58,8 +58,8 @@ class Objet_model extends CI_Model {
     }
 
 /// Fonction pour lister les échanges
-    public function get_pourcentage($pourcentage='', $id_object, $id_user='') {
-        $objet = $this->objet_model->get_by_id($id_object);
+    public function get_pourcentage($pourcentage='', $id_object='', $id_user='') {
+        $sql = $this->objet_model->get_by_id($id_object);
         $query = $this->db->query('SELECT * FROM objet WHERE idUser != %s AND etat = 0 AND prix > (prix-prix*%s) AND c<(prix+prix*%s) AND id != %s');
         $sql = sprintf($sql, $this->db->escape($id_user), $this->db->escape($pourcentage), $this->db->escape($pourcentage), $this->db->escape($id_objet)); 
         return $query->result_array();
