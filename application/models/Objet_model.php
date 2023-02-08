@@ -12,7 +12,7 @@ class Objet_model extends CI_Model {
 /// Fonction pour lister tous les objets
     public function get_objets() {
         $query = $this->db->query('SELECT * FROM objet'); 
-        $array = convert_to_array($query);
+        $array = $query->row_array();
         for ($i = 0; $i < count($array); $i++) {
             $array[$i]['photo'] = $this->objet_model->get_photo_by_objet($array[$i]['id']);
         }
@@ -41,7 +41,6 @@ class Objet_model extends CI_Model {
         $sql='SELECT * FROM photo p JOIN objet o ON p.idObjet=o.id WHERE o.id=%s';
         $sql = sprintf($sql, $this->db->escape($id_objet));
         $query = $this->db->query($sql);
-        echo var_dump($query->result_array());
         return $query->result_array();
     }
 
