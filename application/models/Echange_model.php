@@ -13,7 +13,7 @@ class Echange_model extends CI_Model {
     
 /// Fonction pour lister les échanges
     public function get_dipo() {
-        $query = $this->db->query('SELECT * FROM echange WHERE date_acceptation=NULL'); 
+        $query = $this->db->query('SELECT * FROM echange WHERE date_acceptation IS NULL'); 
         return convert_to_array($query);
     }
 
@@ -24,19 +24,19 @@ class Echange_model extends CI_Model {
         return convert_to_array($query);
     }
 
-// /// Fonction pour obtenir le nombre d'échange par user
-//     public function get_count_per_user() {
-//         $sql='SELECT u.id, count(*) nb_echanges FROM echange e JOIN objet o ON e.idObjet1=o.id JOIN user u ON o.idUser=o.id GROUP BY u.id';
-//         $query = $this->db->query($sql); 
-//         return convert_to_array($query);
-//     }
+/// Fonction pour obtenir le nombre d'échange par user
+    public function get_count_per_user() {
+        $sql='SELECT o.idUser user, count(*) nb_echanges FROM echange e JOIN objet o ON e.idObjet1=o.id GROUP BY o.idUser';
+        $query = $this->db->query($sql); 
+        return convert_to_array($query);
+    }
 
-// /// Fonction pour obtenir l'hitorique des echange effectués'
-//     public function get_historique() {
-//         $sql='SELECT u.id user1, e.idObjet1, u2.id, e.idObject2, FROM echange e JOIN objet o ON e.idObjet1=o1.id JOIN user u1 ON o1.idUser=u1.id JOIN Objet o2 ON o2.id=e.idObject2 JOIN user u2 ON o2.idUser=u2.id GROUP BY u1.i, u2.id';
-//         $query = $this->db->query($sql); 
-//         return convert_to_array($query);
-//     }
+/// Fonction pour obtenir l'hitorique des echange effectués'
+    public function get_historique() {
+        $sql='SELECT o1.idUser user1, e.idObjet1, o2.idUser user2, e.idObjet2, e.date_acceptation FROM echange e JOIN objet o1 ON e.idObjet1=o1.id JOIN OBJET o2 ON e.idObjet2=o2.id GROUP BY o1.idUser, o2.idUser';
+        $query = $this->db->query($sql); 
+        return convert_to_array($query);
+    }
 
 /// Fonction pour créer une nouvelle catégorie
     public function echanger($id_objet1='', $id_objet2=''){
