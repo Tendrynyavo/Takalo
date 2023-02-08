@@ -8,9 +8,11 @@
                 <p class="lead fw-normal text-white-50 mb-0">Ici vous pouvez apporter des modifications</p>
                 <p class="lead fw-normal text-white-50 mt-5">
                     ou 
+                    <a href="<?php echo base_url('index.php/objet/ajout'); ?>">
                     <button class="btn btn-outline-light">
                         <img src="<?php echo base_url('assets/img/plus.png'); ?>" width="35px" height="35px"> Ajoutez un objet
                     </button>
+                    </a>
                 </p>
             </div>
         </div>

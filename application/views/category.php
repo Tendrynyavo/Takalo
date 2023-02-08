@@ -20,7 +20,7 @@
                     <li class="nav-item"><a class="nav-link" href="#">Admin Logged In</a></li>
                 </ul>
 
-                <a class="btn btn-danger shadow" role="button" href="#">Log Out</a>
+                <a class="btn btn-danger shadow" role="button" href="<?php echo base_url('index.php/admin/deconnecte'); ?>">Log Out</a>
             </div>
         </div>
     </nav>

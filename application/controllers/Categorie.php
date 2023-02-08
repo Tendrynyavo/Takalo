@@ -6,6 +6,7 @@ class Categorie extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('categorie_model');
+		$this->load->model('objet_model');
 	}
 
 	public function index() {

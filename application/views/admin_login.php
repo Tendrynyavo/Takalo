@@ -18,7 +18,7 @@
             <div id="navcol-1" class="collapse navbar-collapse">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link active" href="<?php echo base_url('index.php/login'); ?>">Log In</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/admin'); ?>">Admin</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/admin'); ?>">Admin</a></li> 
                 </ul>
             </div>
         </div>
