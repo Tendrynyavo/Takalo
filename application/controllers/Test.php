@@ -23,7 +23,7 @@ class Test extends CI_Controller {
 	}
 
     public function test_func(){
-       $array=$this->echange_model->accepter_echange($date='2000-01-31', $id_objet1=3, $id_objet2=5);
+       $array=$this->echange_model->annuler(1);
 		echo var_dump($array);
     }
 }	
