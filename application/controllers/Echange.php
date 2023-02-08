@@ -61,4 +61,14 @@ class Echange extends Check_session_user {
 		
         $this->load->view('template', $data);
     }
+    
+    public function history() {
+        $data = array();
+        $data['user'] = $this->session->user;
+        $data['categories'] = $this->categorie_model->get_categorie();
+        $data['histories'] = $this->echange_model->get_historique();
+        $data['content'] = 'historique';
+        
+        $this->load->view('template', $data);
+    }
 }

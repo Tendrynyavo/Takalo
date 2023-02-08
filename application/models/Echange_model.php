@@ -30,26 +30,34 @@ class Echange_model extends CI_Model {
         }
         return $array;
     }
-
-/// Fonction pour obtenir le nombre d'échange
+    
+    /// Fonction pour obtenir le nombre d'échange
     public function get_count() {
         $sql='SELECT count(*) nb_echanges FROM echange WHERE date_acceptation IS NOT NULL';
         $query = $this->db->query($sql); 
-        return $query->result_array();
+        return $query->row_array();
     }
-
-/// Fonction pour obtenir le nombre d'échange par user
+    
+    /// Fonction pour obtenir le nombre d'échange par user
     public function get_count_per_user() {
         $sql='SELECT o.idUser user, count(*) nb_echanges FROM echange e JOIN objet o ON e.idObjet1=o.id WHERE date_acceptation IS NOT NULL GROUP BY o.idUser';
         $query = $this->db->query($sql); 
         return $query->result_array();
     }
-
-/// Fonction pour obtenir l'hitorique des echange effectués'
+    
+    /// Fonction pour obtenir l'hitorique des echange effectués'
     public function get_historique() {
-        $sql='SELECT o1.idUser user1, e.idObjet1, o2.idUser user2, e.idObjet2, e.date_acceptation FROM echange e JOIN objet o1 ON e.idObjet1=o1.id JOIN OBJET o2 ON e.idObjet2=o2.id WHERE date_acceptation IS NOT NULL GROUP BY o1.idUser, o2.idUser';
-        $query = $this->db->query($sql); 
-        return $query->result_array();
+        $sql='SELECT o1.idUser user1, e.idObjet1, o2.idUser user2, e.idObjet2, e.date_acceptation FROM echange e JOIN objet o1 ON e.idObjet1=o1.id JOIN objet o2 ON e.idObjet2=o2.id WHERE date_acceptation IS NOT NULL GROUP BY o1.idUser, o2.idUser';
+        $query = $this->db->query($sql);
+        $array = $query->result_array();
+        $this->load->model('user_model');
+        for ($i = 0; $i < count($array); $i++) {
+            $array[$i]['user_1'] = $this->user_model->get_user_by_id($array[$i]['user1']);
+            $array[$i]['user_2'] = $this->user_model->get_user_by_id($array[$i]['user2']);
+            $array[$i]['objet_1'] = $this->objet_model->get_by_id($array[$i]['idObjet1']);
+            $array[$i]['objet_2'] = $this->objet_model->get_by_id($array[$i]['idObjet2']);
+        }
+        return $array;
     }
 
 /// Fonction pour créer une nouvelle catégorie

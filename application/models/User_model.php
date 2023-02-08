@@ -9,6 +9,13 @@ class User_model extends CI_Model {
         $query = $this->db->query('SELECT * FROM user'); 
         return $query->result_array();
     }
+    
+    public function get_user_by_id($id) {
+        $sql = 'SELECT * FROM user WHERE id=%s';
+        $sql = sprintf($sql, $this->db->escape($id));
+        $query = $this->db->query($sql); 
+        return $query->row_array();
+    }
 
 /// Fonction pour verifier un compte par son email et son mot de passe
     public function check_user($user_email = '', $user_mdp='') {
@@ -37,7 +44,7 @@ class User_model extends CI_Model {
     public function get_count_inscrits() {
         $sql='SELECT count(*) nb_user FROM user WHERE etat=0';
         $query = $this->db->query($sql); 
-        return $query->result_array();
+        return $query->row_array();
     }
 }
 ?>

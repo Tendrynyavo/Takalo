@@ -6,6 +6,7 @@ class Admin extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('user_model');
+		$this->load->model('echange_model');
 	}
 
 	public function index() {
@@ -25,5 +26,13 @@ class Admin extends CI_Controller {
 	public function deconnecte() {
 		$this->session->unset_userdata('user_admin');
 		redirect(base_url('index.php/admin'));
+	}
+
+	public function statistique() {
+		$data = array();
+		$data['nombre_user'] = $this->user_model->get_count_inscrits();
+		$data['nombre_echange'] = $this->echange_model->get_count();
+
+		$this->load->view('statistique', $data);
 	}
 }

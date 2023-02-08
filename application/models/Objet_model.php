@@ -58,11 +58,16 @@ class Objet_model extends CI_Model {
     }
 
 /// Fonction pour lister les échanges
-    public function get_pourcentage($pourcentage='', $id_object='', $id_user='') {
-        $sql = $this->objet_model->get_by_id($id_object);
-        $query = $this->db->query('SELECT * FROM objet WHERE idUser != %s AND etat = 0 AND prix > (prix-prix*%s) AND c<(prix+prix*%s) AND id != %s');
+    public function get_pourcentage($pourcentage='', $id_objet='', $id_user='') {
+        $objet = $this->objet_model->get_by_id($id_objet);
+        $sql = 'SELECT * FROM objet WHERE idUser != %s AND etat = 0 AND prix > ('.$objet['prix'].'-'.$objet['prix'].'*%s) AND prix<('.$objet['prix'].'+'.$objet['prix'].'*%s) AND id != %s';
         $sql = sprintf($sql, $this->db->escape($id_user), $this->db->escape($pourcentage), $this->db->escape($pourcentage), $this->db->escape($id_objet)); 
-        return $query->result_array();
+        $query = $this->db->query($sql);
+        $array = $query->result_array();
+        for ($i = 0; $i < count($array); $i++) {
+            $array[$i]['photo'] = $this->objet_model->get_photo_by_objet($array[$i]['id']);
+        }
+        return $array;
     }
 
 /// Fonction pour obtenir les objet n'appartenat pas à un utilisateur en utilisant son id

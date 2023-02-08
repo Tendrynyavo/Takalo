@@ -19,10 +19,10 @@
             </a>
             <div id="navcol-1" class="collapse navbar-collapse">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Admin Logged In</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/categorie'); ?>">Gestion de categorie</a></li>
                 </ul>
 
-                <a class="btn btn-danger shadow" role="button" href="#">Log Out</a>
+                <a class="btn btn-danger shadow" role="button" href="<?php echo base_url('index.php/admin/deconnecte'); ?>">Log Out</a>
             </div>
         </div>
     </nav>
@@ -57,11 +57,11 @@
                                 <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Utilisateurs Inscrits</div>
                                     <div class="row no-gutters align-items-center">
                                         <div class="col-auto">
-                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">4</div>
+                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $nombre_user['nb_user']; ?></div>
                                         </div>
                                         <div class="col">
                                             <div class="progress progress-sm mr-2">
-                                                <div class="progress-bar bg-info" role="progressbar" style="width: 4%" aria-valuemax="100"></div>
+                                                <div class="progress-bar bg-info" role="progressbar" style="width: <?php echo $nombre_user['nb_user']; ?>%" aria-valuemax="100"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -83,11 +83,11 @@
                                 </div>
                                     <div class="row no-gutters align-items-center">
                                         <div class="col-auto">
-                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">10</div>
+                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $nombre_echange['nb_echanges']; ?></div>
                                         </div>
                                         <div class="col">
                                             <div class="progress progress-sm mr-2">
-                                                <div class="progress-bar bg-warning" role="progressbar" style="width: 10%" aria-valuemax="100"></div>
+                                                <div class="progress-bar bg-warning" role="progressbar" style="width: <?php echo $nombre_echange['nb_echanges']; ?>%" aria-valuemax="100"></div>
                                             </div>
                                         </div>
                                     </div>

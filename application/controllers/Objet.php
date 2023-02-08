@@ -82,4 +82,14 @@ class Objet extends Check_session_user {
         $this->objet_model->ajouter_objet($this->session->user['id'], $this->input->post('nom'), $this->input->post('descr'), $this->input->post('prix'));
         redirect(base_url('index.php/objet'));
     }
+
+    public function filtre() {
+        $data = array();
+        $data['user'] = $this->session->user;
+        $data['content'] = 'plus_moins';
+        $data['pourcentage'] = $this->input->get('pourcentage') * 100;
+        $data['objets'] = $this->objet_model->get_pourcentage($this->input->get('pourcentage'), $this->input->get('objet'), $this->session->user['id']);
+        $data['categories'] = $this->categorie_model->get_categorie();
+        $this->load->view('template', $data);
+    }
 }

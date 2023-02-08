@@ -17,7 +17,7 @@
             </a>
             <div id="navcol-1" class="collapse navbar-collapse">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Admin Logged In</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/admin/statistique'); ?>">Statistique</a></li>
                 </ul>
 
                 <a class="btn btn-danger shadow" role="button" href="<?php echo base_url('index.php/admin/deconnecte'); ?>">Log Out</a>
