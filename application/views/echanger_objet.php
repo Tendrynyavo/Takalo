@@ -5,21 +5,21 @@
             <div class="col mb-5">
                 <div class="card h-100">
                     <!-- Product image-->
-                    <img class="card-img-top" src="<?php echo base_url('assets/img/basket.png'); ?>" alt="..." width="284px" height="177px"/>
+                    <img class="card-img-top" src="<?php echo base_url($objet['photo'][0]['photo']); ?>" alt="..." width="284px" height="177px"/>
                     <!-- Product details-->
                     <div class="card-body p-4">
                         <div class="text-center">
                             <!-- Product name-->
-                            <h4 class="fw-bolder"><strong><?php echo $objet->nom; ?></strong></h4>
+                            <h4 class="fw-bolder"><strong><?php echo $objet['nom']; ?></strong></h4>
                             <!-- Product price-->
-                            <?php echo $objet->prix; ?>
+                            <?php echo $objet['prix']; ?>
                             <br>
                             <br>
                         </div>
                         <!-- Product description-->
-                        <p><strong>Description: </strong><?php echo $objet->descr; ?></p>
+                        <p><strong>Description: </strong><?php echo $objet['descr']; ?></p>
                         <!-- Product property-->
-                        <p><strong>Propriétaire: </strong><?php echo $objet->user; ?></p>
+                        <p><strong>Propriétaire: </strong><?php echo $objet['user']; ?></p>
                     </div>
                 </div>
             </div>
@@ -47,19 +47,19 @@
             <div class="col mb-5">
                 <div class="card h-100">
                     <!-- Product image-->
-                    <img class="card-img-top" src="<?php echo base_url('assets/img/macbook.png'); ?>" alt="..."  width="284px" height="177px"/>
+                    <img class="card-img-top" src="<?php echo base_url($objet_choice['photo'][0]['photo']); ?>" alt="..."  width="284px" height="177px"/>
                     <!-- Product details-->
                     <div class="card-body p-4">
                         <div class="text-center">
                             <!-- Product name-->
-                            <h4 class="fw-bolder"><strong><?php echo $objet_choice->nom; ?></strong></h4>
+                            <h4 class="fw-bolder"><strong><?php echo $objet_choice['nom']; ?></strong></h4>
                             <!-- Product price-->
-                            <?php echo $objet_choice->prix; ?>
+                            <?php echo $objet_choice['prix']; ?>
                             <br>
                             <br>
                         </div>
                         <!-- Product description-->
-                        <p><strong>Description: </strong><?php echo $objet_choice->descr; ?></p>
+                        <p><strong>Description: </strong><?php echo $objet_choice['descr']; ?></p>
                         <!-- Product property-->
                         <p><strong>Propriétaire: </strong>Vous</p>
 

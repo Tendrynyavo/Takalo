@@ -41,6 +41,7 @@ class Objet_model extends CI_Model {
         $sql='SELECT * FROM photo p JOIN objet o ON p.idObjet=o.id WHERE o.id=%s';
         $sql = sprintf($sql, $this->db->escape($id_objet));
         $query = $this->db->query($sql);
+        echo $sql;
         return $query->result_array();
     }
 

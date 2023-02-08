@@ -10,7 +10,7 @@
 
     <!-- Section-->
     <section class="py-5">
-        <?php for ($i=0; $i < 5; $i++) { ?>
+        <?php foreach ($propositions as $proposition) { ?>
 
         <div class="container px-4 px-lg-5 mt-5">
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
@@ -18,22 +18,22 @@
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- Product image-->
-                        <img class="card-img-top" src="<?php echo base_url('assets/img/basket.png'); ?>" alt="..." width="284px"
+                        <img class="card-img-top" src="<?php echo base_url($proposition['objet1']['photo'][0]['photo']); ?>" alt="..." width="284px"
                             height="177px" />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h4 class="fw-bolder"><strong>Nike</strong></h4>
+                                <h4 class="fw-bolder"><strong><?php echo $proposition['objet1']['nom']; ?></strong></h4>
                                 <!-- Product price-->
-                                $80
+                                <?php echo $proposition['objet1']['prix']; ?>
                                 <br>
                                 <br>
                             </div>
                             <!-- Product description-->
-                            <p><strong>Description: </strong>Air Force One amle vrai marque fa tsy Andouram</p>
+                            <p><strong>Description: </strong><?php echo $proposition['objet1']['descr']; ?></p>
                             <!-- Product property-->
-                            <p><strong>Propriétaire: </strong>Ilohity</p>
+                            <p><strong>Propriétaire: </strong><?php echo $proposition['objet1']['user']; ?></p>
                         </div>
                     </div>
                 </div>
@@ -58,20 +58,20 @@
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- Product image-->
-                        <img class="card-img-top" src="<?php echo base_url('assets/img/macbook.png'); ?>" alt="..."
+                        <img class="card-img-top" src="<?php echo base_url($proposition['objet2']['photo'][0]['photo']); ?>" alt="..."
                             width="284px" height="177px" />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h4 class="fw-bolder"><strong>MacBook</strong></h4>
+                                <h4 class="fw-bolder"><strong><?php echo $proposition['objet2']['nom']; ?></strong></h4>
                                 <!-- Product price-->
-                                $2400
+                                <?php echo $proposition['objet2']['prix']; ?>
                                 <br>
                                 <br>
                             </div>
                             <!-- Product description-->
-                            <p><strong>Description: </strong>M2 Pro tena hiaka farany an'ny Apple</p>
+                            <p><strong>Description: </strong><?php echo $proposition['objet2']['descr']; ?></p>
                             <!-- Product property-->
                             <p><strong>Propriétaire: </strong>Vous</p>
                         </div>

@@ -16,7 +16,7 @@ class Objet extends Check_session_user {
         $data['objets'] = $this->objet_model->get_not_owned($this->session->user['id']);
         $data['content'] = 'liste_objet';
 		
-        //$this->load->view('template', $data);
+        $this->load->view('template', $data);
 	}
 	
     public function gestion() {

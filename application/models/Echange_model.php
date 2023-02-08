@@ -21,11 +21,12 @@ class Echange_model extends CI_Model {
     public function get_dipo_by_user($id_user) {
         $sql = 'SELECT * FROM echange e JOIN objet o ON e.idObjet1=o.id WHERE date_acceptation IS NULL AND o.idUser=%s';
         $sql = sprintf($sql, $this->db->escape($id_user));
+        echo $sql;
         $query = $this->db->query($sql);
         $array = $query->result_array();
         for ($i = 0; $i < count($array); $i++) {
-            $array[$i]['objet1'] = $this->objet_model->get_by_id($array[$i]['idobjet1']);
-            $array[$i]['objet2'] = $this->objet_model->get_by_id($array[$i]['idobjet2']);
+            $array[$i]['objet1'] = $this->objet_model->get_by_id($array[$i]['idObjet1']);
+            $array[$i]['objet2'] = $this->objet_model->get_by_id($array[$i]['idObjet2']);
         }
         return $array;
     }
@@ -53,7 +54,7 @@ class Echange_model extends CI_Model {
 
 /// Fonction pour créer une nouvelle catégorie
     public function echanger($id_objet1='', $id_objet2=''){
-        $sql='INSERT INTO echange(idObjet1, idObjet2, etat) VALUES (%s, %s, 0)';
+        $sql='INSERT INTO echange(idObjet1, idObjet2, etat) VALUES (%s, %s, 3)';
         $sql = sprintf($sql, $this->db->escape($id_objet1), $this->db->escape($id_objet2));
         $query = $this->db->query($sql); 
     }
@@ -68,4 +69,3 @@ class Echange_model extends CI_Model {
         $query = $this->db->query($sql2);
     }
 }
-?>
