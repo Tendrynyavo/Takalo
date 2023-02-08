@@ -34,5 +34,6 @@ CREATE TABLE echange(
     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idObjet1 int NOT NULL REFERENCES objet(id),
     idObjet2 int NOT NULL REFERENCES objet(id),
-    etat int NOT NULL
+    etat int NOT NULL,
+    date_acceptation DEFAULT NULL
 );
