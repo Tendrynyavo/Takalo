@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?= base_url('assets/bootstrap/css/bootstrap.min.css') ?>">
-    <link rel="icon" href="<?= base_url('assets/img/responsabilite-sociale.png') ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css'); ?>">
+    <link rel="icon" href="<?php echo base_url('assets/img/responsabilite-sociale.png'); ?>">
     <title>Annonces</title>
 </head>
 
@@ -14,7 +14,7 @@
     <nav id="mainNav" class="bg-light navbar navbar-light navbar-expand-md fixed-top navbar-shrink py-3">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="<?= base_url('assets/img/logo.png') ?>" width="35px" height="35px">
+                <img src="<?php echo base_url('assets/img/logo.png'); ?>" width="35px" height="35px">
                 <span>Takalo Takalo</span>
             </a>
             <div id="navbarResponsive" class="collapse navbar-collapse">
@@ -24,11 +24,11 @@
                 </ul>
 
                 <ul class="navbar-nav mx-auto">
-                    <img src="<?= base_url('assets/img/user.png') ?>" width="35px" height="35px">
-                    <li class="nav-item"><a class="nav-link" href="#">Tendry</a></li>
+                    <img src="<?php echo base_url('assets/img/user.png'); ?>" width="35px" height="35px">
+                    <li class="nav-item"><a class="nav-link" href="#"><?php echo $user['nom']; ?></a></li>
                 </ul>
 
-                <a class="btn btn-danger shadow" role="button" href="#">Se Déconnecter</a>
+                <a class="btn btn-danger shadow" role="button" href="<?php echo base_url('index.php/login/deconnecte'); ?>">Se Déconnecter</a>
             </div>
         </div>
     </nav>
@@ -50,19 +50,19 @@
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
-                <?php for ($i=0; $i < 8; $i++) { ?>
+                <?php foreach ($objets as $objet) { ?>
                 
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="<?= base_url('assets/img/basket.png') ?>" alt="..." />
+                            <img class="card-img-top" src="<?php echo base_url('assets/img/basket.png'); ?>" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">Nike</h5>
+                                    <h5 class="fw-bolder"><?php echo $objet['nom']; ?></h5>
                                     <!-- Product price-->
-                                    $40.00 - $80.00
+                                    <?php echo $objet['prix']; ?>
                                 </div>
                             </div>
                             <!-- Product actions-->
@@ -78,6 +78,6 @@
             </div>
         </section>
 
-    <script src="<?= base_url('assets/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
 </body>
 </html>

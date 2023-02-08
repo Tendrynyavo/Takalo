@@ -12,7 +12,7 @@
     <nav id="mainNav" class="navbar navbar-light navbar-expand-md fixed-top navbar-shrink py-3">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="<?= base_url('assets/img/logo.png')?>" width="35px" height="35px">
+                <img src="<?php echo base_url('assets/img/logo.png')?>" width="35px" height="35px">
                 <span>Takalo Takalo</span>
             </a>
             <div id="navcol-1" class="collapse navbar-collapse">
@@ -26,7 +26,7 @@
     <section class="py-4 py-md-5 my-5">
         <div class="container py-md-5">
             <div class="row">
-                <div class="col-md-6 text-center"><img class="img-fluid w-50" src="<? echo base_url('assets/img/networking.png'); ?>" /></div>
+                <div class="col-md-6 text-center"><img class="img-fluid w-50" src="<?php echo base_url('assets/img/networking.png'); ?>" /></div>
                 <div class="col-md-5 col-xl-4 text-center text-md-start">
                     <h2 class="display-6 fw-bold mb-5"><span class="underline pb-1"><strong>User Login</strong><br /></span></h2>
                     <form method="post" action="<?php echo base_url('index.php/login/check'); ?>">
