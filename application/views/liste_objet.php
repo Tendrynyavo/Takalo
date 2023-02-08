@@ -6,12 +6,6 @@
             <div class="text-center text-white">
                 <h1 class="display-4 fw-bolder">Organisez des echanges</h1>
                 <p class="lead fw-normal text-white-50 mb-0">Voyez par vous mêmes les objets disponibles</p>                
-                <p class="lead fw-normal text-white-50 mt-5">
-                    ou 
-                    <button class="btn btn-outline-light">
-                        <img src="<?php echo base_url('assets/img/plus.png'); ?>" width="35px" height="35px"> Ajoutez un objet
-                    </button>
-                </p>
             </div>
         </div>
     </header>
