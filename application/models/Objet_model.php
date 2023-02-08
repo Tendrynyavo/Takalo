@@ -41,7 +41,6 @@ class Objet_model extends CI_Model {
         $sql='SELECT * FROM photo p JOIN objet o ON p.idObjet=o.id WHERE o.id=%s';
         $sql = sprintf($sql, $this->db->escape($id_objet));
         $query = $this->db->query($sql);
-        echo $sql;
         return $query->result_array();
     }
 
@@ -49,6 +48,7 @@ class Objet_model extends CI_Model {
     public function get_by_id_user($id = 1) {
         $sql='SELECT * FROM objet WHERE iduser = %s';
         $sql = sprintf($sql, $this->db->escape($id));
+        echo $sql;
         $query = $this->db->query($sql); 
         $array = $query->result_array();
         for ($i = 0; $i < count($array); $i++) {
@@ -59,7 +59,7 @@ class Objet_model extends CI_Model {
 
 /// Fonction pour obtenir les objet n'appartenat pas à un utilisateur en utilisant son id
     public function get_not_owned($id = 1) {
-        $sql='SELECT * FROM objet WHERE NOT iduser = %s';
+        $sql='SELECT * FROM objet WHERE NOT iduser = %s AND etat = 0';
         $sql = sprintf($sql, $this->db->escape($id));
         $query = $this->db->query($sql); 
         $array = $query->result_array();

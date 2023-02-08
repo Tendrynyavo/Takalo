@@ -47,8 +47,8 @@
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Action Button-->
-                                <button class="btn btn-outline-success" type="submit">Accepter</button>
-                                <button class="btn btn-outline-danger" type="submit">Refuser</button>
+                                <button class="btn btn-outline-success"><a href="<?php echo base_url('index.php/echange/accepter'); ?>" class="text-decoration-none">Accepter</a></button>
+                                <button class="btn btn-outline-danger">Refuser</button>
                             </div>
                         </div>
                     </div>
