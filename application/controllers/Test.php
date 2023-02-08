@@ -22,7 +22,8 @@ class Test extends CI_Controller {
 	}
 
     public function test_func(){
-       $this->objet_model->get_photo_by_objet(3);
+       $array=$this->objet_model->get_not_owned(3);
+		echo var_dump($array);
     }
 }	
 
