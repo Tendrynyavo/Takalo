@@ -21,7 +21,7 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$data = array();
-		$data['content'] = 'historique';
+		$data['content'] = 'no_objet';
 		$this->load->view('template', $data);
 	}		
 
