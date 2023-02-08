@@ -18,7 +18,10 @@
 
 <!-- Section-->
     <section class="py-5">
-        <div class="container px-4 px-lg-5 mt-5">
+        <div class="container text-center">
+            
+        </div>
+        <div class="container px-4 px-lg-5 mt-5 mw-100">
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
             <?php foreach ($objets as $objet) { ?>
@@ -41,9 +44,13 @@
                             <p><strong>Description: </strong><?php echo $objet['descr']; ?></p>
                         </div>
                         <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="<?php echo base_url('index.php/objet/gerer?id='. $objet['id']); ?>">Modifier</a></div>
-                        </div>
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent input-group">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto mx-2" href="<?php echo base_url('index.php/objet/gerer?id='. $objet['id']); ?>">Modifier</a></div>
+                                <fieldset>
+                                    <button class="btn btn-outline-primary"><a href="#" class="text-decoration-none text-dark">+/- 10%</a></button>
+                                    <button class="btn btn-outline-primary"><a href="#" class="text-decoration-none text-dark">+/- 20%</a></button>
+                                </fieldset>
+                            </div>
                     </div>
                 </div>
 
