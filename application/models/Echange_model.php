@@ -6,7 +6,7 @@ class Echange_model extends CI_Model {
 
 /// Fonction pour lister les échanges
     public function get_echanges() {
-        $query = $this->db->query('SELECT * FROM echange'); 
+        $query = $this->db->query('SELECT * FROM echange WHERE id NOT IN (SELECT idEchange FROM annule)'); 
         return $query->result_array();
     }
 
@@ -14,13 +14,6 @@ class Echange_model extends CI_Model {
 /// Fonction pour lister les échanges
     public function get_dipo() {
         $query = $this->db->query('SELECT * FROM objet WHERE etat=0'); 
-        return $query->result_array();
-    }
-
-/// Fonction pour lister les échanges
-    public function get_pourcentage($pourcentage='', $id_objet='', $id_user='') {
-        $query = $this->db->query('SELECT * FROM objet WHERE etat=0, prix>(prix-prix*%s), prix<(prix+prix*%s), NOT idUser=%s, id=%s');
-        $sql = sprintf($sql, $this->db->escape($pourcentage), $this->db->escape($pourcentage), $this->db->escape($id_user), $this->db->escape($id_objet)); 
         return $query->result_array();
     }
         
@@ -87,5 +80,12 @@ class Echange_model extends CI_Model {
         echo $sql2;
         echo $sql3;
         echo $sql4;
+    }
+
+/// Fonction pour annuler un échange
+    public function annuler($id_echange=''){
+        $sql='INSERT INTO annule (idEchange) VALUES (%s)';
+        $sql=sprintf($sql, $this->db->escape($id_echange));
+        $this->db->query($sql);
     }
 }
