@@ -18,20 +18,21 @@
                 <span>Takalo Takalo</span>
             </a>
 
-            
+            <!-- NAVBAR MENU -->
             <div id="navbarResponsive" class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="<?php echo base_url('index.php/objet'); ?>">Accueil</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="<?php echo base_url('index.php/objet/gestion'); ?>">Mes Objets</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="<?php echo base_url('index.php/echange/proposition'); ?>">Propositions</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="<?php echo base_url('index.php/echange/proposition'); ?>">Historique</a></li>
                 </ul>
                 
                 <ul class="navbar-nav mx-auto">
                     <img src="<?php echo base_url('assets/img/user.png'); ?>" width="35px" height="35px">
-                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/objet/gestion'); ?>"><?php echo $user['nom']; ?></a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/objet/gestion'); ?>"><?php //echo $user['nom']; ?></a></li>
                 </ul>
 
-                <!-- RESEARCH FORM -->
+            <!-- RESEARCH FORM -->
                 <form method="get" action="<?php echo base_url('index.php/objet/search'); ?>" class="text-center m-2">
                     <fieldset>
                         <div class="input-group">
