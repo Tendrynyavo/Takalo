@@ -16,13 +16,6 @@ class Echange_model extends CI_Model {
         $query = $this->db->query('SELECT * FROM objet WHERE etat=0'); 
         return $query->result_array();
     }
-
-/// Fonction pour lister les échanges
-    public function get_pourcentage($pourcentage='', $id_objet='', $id_user='') {
-        $query = $this->db->query('SELECT * FROM objet WHERE etat=0, prix>(prix-prix*%s), prix<(prix+prix*%s), NOT idUser=%s, id=%s');
-        $sql = sprintf($sql, $this->db->escape($pourcentage), $this->db->escape($pourcentage), $this->db->escape($id_user), $this->db->escape($id_objet)); 
-        return $query->result_array();
-    }
         
 /// Fonction pour lister les échanges pour vous
     public function get_dipo_by_user($id_user) {
