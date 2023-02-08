@@ -19,7 +19,7 @@ class Echange_model extends CI_Model {
     
 /// Fonction pour lister les échanges pour vous
     public function get_dipo_by_user($id_user) {
-        $query = $this->db->query('SELECT * FROM echange e, objet o WHERE e.idObjet1=o.id AND date_acceptation IS NULL AND o.idUser=%s'); 
+        $query = $this->db->query('SELECT * FROM echange e JOIN objet o1 ON e.idObjet1=o1.id WHERE date_acceptation IS NULL AND o.idUser=%s'); 
         $sql = sprintf($sql, $this->db->escape($id_user));
         return convert_to_array($query);
 }
@@ -40,7 +40,7 @@ class Echange_model extends CI_Model {
 
 /// Fonction pour obtenir l'hitorique des echange effectués'
     public function get_historique() {
-        $sql='SELECT o1.idUser user1, e.idObjet1, o2.idUser user2, e.idObjet2, e.date_acceptation FROM echange e JOIN objet o1 ON e.idObjet1=o1.id JOIN OBJET o2 ON e.idObjet2=o2.id GROUP BY o1.idUser, o2.idUser';
+        $sql='SELECT o1.idUser user1, e.idObjet1, o2.idUser user2, e.idObjet2, e.date_acceptation FROM echange e JOIN objet o1 ON e.idObjet1=o1.id JOIN OBJET o2 ON e.idObjet2=o2.id WHERE date_acceptation IS NOT NULL GROUP BY o1.idUser, o2.idUser';
         $query = $this->db->query($sql); 
         return convert_to_array($query);
     }
