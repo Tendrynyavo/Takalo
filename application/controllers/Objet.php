@@ -46,16 +46,8 @@ class Objet extends Check_session_user {
 
     public function modifier() {
         /// Gerer les champs vides
-        if ($this->input->post('nom') == "") {
-            $text = base_url('index.php/objet/gerer') . "?error=Champ nom est vide&&nom=%s&&prix=%s&&descr=%s&&id=%d#form";
-            $text = sprintf($text, $this->input->post('nom'), $this->input->post('prix'), $this->input->post('descr'), $this->input->post('id'));
-            redirect($text);
-        } else if ($this->input->post('prix') == "") {
-            $text = base_url('index.php/objet/gerer') . "?error=Champ prix est vide&&nom=%s&&prix=%s&&descr=%s&&id=%d#form";
-            $text = sprintf($text, $this->input->post('nom'), $this->input->post('prix'), $this->input->post('descr'), $this->input->post('id'));
-            redirect($text);
-        } else if ($this->input->post('descr') == "") {
-            $text = base_url('index.php/objet/gerer') . "?error=Champ description est vide&&nom=%s&&prix=%s&&descr=%s&&id=%d#form";
+        if ($this->input->post('nom') == "" || $this->input->post('prix') == "" || $this->input->post('descr') == "") {
+            $text = base_url('index.php/objet/gerer') . "?error=Les champs ne doivent pas être vide&&nom=%s&&prix=%s&&descr=%s&&id=%d#form";
             $text = sprintf($text, $this->input->post('nom'), $this->input->post('prix'), $this->input->post('descr'), $this->input->post('id'));
             redirect($text);
         }

@@ -14,7 +14,7 @@ class Objet_model extends CI_Model {
     public function get_by_id($id = 1) {
         $sql='SELECT o.*, u.nom as user FROM objet o JOIN user u ON o.idUser=u.id WHERE o.id = %s';
         $sql = sprintf($sql, $this->db->escape($id));
-        $query = $this->db->query($sql); 
+        $query = $this->db->query($sql);
         return $query->row();
     }
 
@@ -22,7 +22,7 @@ class Objet_model extends CI_Model {
     public function get_photo() {
         $sql='SELECT * FROM photo p JOIN objet o ON p.idObjet=o.id';
         $query = $this->db->query($sql); 
-        return $query->row();
+        return $query->result_array();
     }
 
 /// Fonction pour obtenir les photos d'un objet par son id
@@ -30,7 +30,7 @@ class Objet_model extends CI_Model {
         $sql='SELECT * FROM photo p JOIN objet o ON p.idObjet=o.id WHERE o.id=%s';
         $sql = sprintf($sql, $this->db->escape($id_objet));
         $query = $this->db->query($sql); 
-        return $query->row();
+        return $query->result_array();
     }
 
 /// Fonction pour obtenir un objet par son id
