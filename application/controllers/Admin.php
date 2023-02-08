@@ -15,10 +15,15 @@ class Admin extends CI_Controller {
 	public function check() {
 		$user = $this->user_model->check_admin($this->input->post('email'), $this->input->post('password'));
 		if (count($user) > 0) {
-			$this->session->set_userdata('user', $user[0]);
+			$this->session->set_userdata('user_admin', $user[0]);
 			redirect(base_url('index.php/categorie'));
 		} else {
 			redirect(base_url('index.php/admin'));
 		}
+	}
+
+	public function deconnecte() {
+		$this->session->unset_userdata('user_admin');
+		redirect(base_url('index.php/admin'));
 	}
 }
