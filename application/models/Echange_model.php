@@ -19,7 +19,7 @@ class Echange_model extends CI_Model {
     
 /// Fonction pour lister les échanges pour vous
     public function get_dipo_by_user($id_user) {
-        $sql = 'SELECT * FROM echange e JOIN objet o ON e.idObjet1=o.id WHERE WHERE o.etat=0 AND o.idUser=%s';
+        $sql = 'SELECT * FROM echange e JOIN objet o ON e.idObjet1=o.id WHERE o.etat=3 AND o.idUser=%s';
         $sql = sprintf($sql, $this->db->escape($id_user));
         echo $sql;
         $query = $this->db->query($sql);
