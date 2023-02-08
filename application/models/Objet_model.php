@@ -119,4 +119,11 @@ class Objet_model extends CI_Model {
         }
         return $array;
     }   
+
+/// Fonction pour changer l'état d'un objet
+    public function change_etat($etat='', $id_objet=''){
+        $sql='UPDATE objet SET etat=% WHERE id=%s';
+        $sql=sprintf($sql, $this->db->escape($etat), $this->db->escape($id_objet1));
+        $this->db->query($sql);
+    }
 }

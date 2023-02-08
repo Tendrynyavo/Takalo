@@ -83,12 +83,12 @@ class Echange_model extends CI_Model {
     }
 
 /// Fonction pour annuler un échange
-    public function annuler($id_echange='', $id_objet1='',, $id_objet2=''){
+    public function annuler($id_echange='', $id_objet1='', $id_objet2=''){
         $sql='INSERT INTO annule (idEchange) VALUES (%s)';
         $sql=sprintf($sql, $this->db->escape($id_echange));
         $this->db->query($sql);
         $sql2='UPDATE objet SET etat=3 WHERE id=%s OR id=%s';
-        $sql2=sprintf($sql2, $this->db->escape($id_echange));
+        $sql2=sprintf($sql2, $this->db->escape($id_objet1), $this->db->escape($id_objet2));
         $this->db->query($sql2);
     }
 }
