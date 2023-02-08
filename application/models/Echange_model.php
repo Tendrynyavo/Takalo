@@ -73,6 +73,5 @@ class Echange_model extends CI_Model {
         $sql3 = 'UPDATE objet SET etat=0 WHERE id=%s OR id=%s';
         $sql3 = sprintf($sql3, $this->db->escape($id_objet1), $this->db->escape($id_objet2));
         $query = $this->db->query($sql3);
-        echo $sql2;
     }
 }

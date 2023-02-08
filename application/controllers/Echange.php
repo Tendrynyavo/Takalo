@@ -41,6 +41,7 @@ class Echange extends Check_session_user {
     }
 
     public function accepter() {
-        
+        $this->echange_model->accepter_echange($this->input->get('id'), $this->input->get('choix'), $this->input->get('user1'), $this->input->get('user2'));
+        redirect(base_url('index.php/echange/proposition'));
     }
 }

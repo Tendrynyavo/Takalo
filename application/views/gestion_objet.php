@@ -26,7 +26,7 @@
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- Product image-->
-                        <img class="card-img-top" src="<?php echo base_url('assets/img/macbook.png'); ?>" alt="..." />
+                        <img class="card-img-top" src="<?php echo base_url($objet['photo'][0]['photo']); ?>" alt="..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">

@@ -47,7 +47,7 @@
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Action Button-->
-                                <button class="btn btn-outline-success"><a href="<?php echo base_url('index.php/echange/accepter'); ?>" class="text-decoration-none">Accepter</a></button>
+                                <button class="btn btn-outline-success"><a href="<?php echo base_url('index.php/echange/accepter?id=' . $proposition['objet1']['id'] .'&&choice=' .$proposition['objet2']['id'] . '&&user1=' . $proposition['objet1']['user'] . '&&user2=' .$proposition['objet2']['user']); ?>" class="text-decoration-none">Accepter</a></button>
                                 <button class="btn btn-outline-danger">Refuser</button>
                             </div>
                         </div>
