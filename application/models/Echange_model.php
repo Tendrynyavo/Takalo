@@ -46,7 +46,7 @@ class Echange_model extends CI_Model {
 
 /// Fonction pour obtenir l'hitorique des echange effectués'
     public function get_historique() {
-        $sql='SELECT o1.idUser user1, e.idObjet1, o2.idUser user2, e.idObjet2, e.date_acceptation FROM echange e JOIN objet o1 ON e.idObjet1=o1.id JOIN OBJET o2 ON e.idObjet2=o2.id GROUP BY o1.idUser, o2.idUser';
+        $sql='SELECT o1.idUser user1, e.idObjet1, o2.idUser user2, e.idObjet2, e.date_acceptation FROM echange e JOIN objet o1 ON e.idObjet1=o1.id JOIN OBJET o2 ON e.idObjet2=o2.id WHERE date_acceptation IS NOT NULL GROUP BY o1.idUser, o2.idUser';
         $query = $this->db->query($sql); 
         return $query->result_array();
     }
