@@ -93,8 +93,8 @@ class Objet_model extends CI_Model {
     }    
 
 /// Fonction ajouter un objet au site
-    public function ajouter_objet($id_user='',$nom='', $id_categorie='', $descr = '', $prix='') {
-        $sql = 'INSERT INTO objet (idUser, nom, idCategorie, descr, prix) VALUES (%s, %s, %s, %s, %s)';
+    public function ajouter_objet($id_user='',$nom='', $descr = '', $prix='') {
+        $sql = 'INSERT INTO objet (idUser, nom, descr, prix) VALUES (%s, %s, %s, %s)';
         $sql = sprintf($sql, $this->db->escape($id_user), $this->db->escape($nom), $this->db->escape($id_categorie), $this->db->escape($descr), $this->db->escape($prix));
         $query = $this->db->query($sql);
     }
