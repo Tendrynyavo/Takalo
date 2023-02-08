@@ -21,7 +21,7 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$data = array();
-		$data['content'] = 'proposition';
+		$data['content'] = 'gestion_objet';
 		$this->load->view('template', $data);
 		
 	}		
@@ -29,6 +29,5 @@ class Welcome extends CI_Controller {
 	public function sign()
 	{
 		$this->load->view('Signin');
-		
 	}		
 }
