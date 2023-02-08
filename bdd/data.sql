@@ -13,7 +13,7 @@ INSERT INTO user(nom, prenom, email, mdp, etat) VALUES
 INSERT INTO objet(idUser, nom, idCategorie, descr, prix) VALUES
 (1, 'Le Docteur Amoureux', 2, 'Un petit Molière', 2000.00),
 (4, 'Nike', 4, 'Un petit Molière', 200.00),
-(4, 'Devil May Cry 5', 4, 'Bon état', 25000.00),
+(4, 'Devil May Cry 5', 4, 'Ts mandeha fa tsara boîte', 25000.00),
 (4, 'Converses', 4, 'Noires', 150.00),
 (3, 'T-shirt Spider-Man', 3, 'Il pu', 2000.00),
 (3, 'Huawei nova 2', 4, 'Bon état', 325000.00),
