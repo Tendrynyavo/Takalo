@@ -19,7 +19,7 @@
                         <!-- Product description-->
                         <p><strong>Description: </strong><?php echo $objet->descr; ?></p>
                         <!-- Product property-->
-                        <p><strong>Propriétaire: </strong>Ilohity</p>
+                        <p><strong>Propriétaire: </strong><?php echo $objet->user; ?></p>
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                         <br>
                         <br>
                         <!-- Proposition Button-->
-                        <a href="<?php echo base_url('index.php/echange?id=' . $id . '&&choix=' . $choix); ?>"><button class="btn btn-outline-success" type="submit">Proposer</button></a>
+                        <a href="<?php echo base_url('index.php/echange/envoyer?id=' . $id . '&&choix=' . $choix); ?>"><button class="btn btn-outline-success" type="submit">Proposer</button></a>
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                         <!-- Product property-->
                         <p><strong>Propriétaire: </strong>Vous</p>
 
-                        <form method="get" action="<?php echo base_url('index.php/objet/choisir'); ?>" class="text-center">
+                        <form method="get" action="<?php echo base_url('index.php/echange'); ?>" class="text-center">
                             <select class="selectpicker" name="choix">
                                 <option selected>Choisissez un objet</option>
                                 <?php foreach ($objets as $objet) { ?>

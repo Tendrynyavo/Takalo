@@ -13,7 +13,7 @@ class Echange_model extends CI_Model {
     
 /// Fonction pour lister les échanges
     public function get_dipo() {
-        $query = $this->db->query('SELECT * FROM echange WHERE date_acceptation=NULL'); 
+        $query = $this->db->query('SELECT * FROM echange WHERE date_acceptation is NULL'); 
         return convert_to_array($query);
     }
 
