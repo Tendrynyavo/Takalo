@@ -6,7 +6,6 @@ class Categorie extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('categorie_model');
-		$this->load->model('objet_model');
 	}
 
 	public function index() {
@@ -19,8 +18,9 @@ class Categorie extends CI_Controller {
 
 	public function categoriser() {
 		$data = [];
-		$data['objet'] = $this->objet_model->get_by_id($this->input->get('id'))[0];
+		$data['objet'] = $this->objet_model->get_by_id($this->input->get('id'));
 		$data['categories'] = $this->categorie_model->get_categorie();
+		
 		$this->load->view('categorisation', $data);
 	}
 

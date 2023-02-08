@@ -15,15 +15,23 @@ class Objet_model extends CI_Model {
         $sql='SELECT * FROM objet WHERE id = %s';
         $sql = sprintf($sql, $this->db->escape($id));
         $query = $this->db->query($sql); 
-        return convert_to_array($query);
+        return $query->row();
+    }
+
+/// Fonction pour obtenir un objet par son id
+    public function get_by_id_user($id = 1) {
+        $sql='SELECT * FROM objet WHERE iduser = %s';
+        $sql = sprintf($sql, $this->db->escape($id));
+        $query = $this->db->query($sql); 
+        return $query->result_array();
     }
 
 /// Fonction pour obtenir les objet n'appartenat pas à un utilisateur en utilisant son id
     public function get_not_owned($id = 1) {
-        $sql='SELECT * FROM objet WHERE NOT id = %s';
+        $sql='SELECT * FROM objet WHERE NOT iduser = %s';
         $sql = sprintf($sql, $this->db->escape($id));
         $query = $this->db->query($sql); 
-        return convert_to_array($query);
+        return $query->result_array();
     }
 
 /// Fonction pour obtenir un objet par son idcategorie
@@ -31,7 +39,7 @@ class Objet_model extends CI_Model {
         $sql='SELECT * FROM objet WHERE idCategorie = %s';
         $sql = sprintf($sql, $this->db->escape($id_categorie));
         $query = $this->db->query($sql); 
-        return convert_to_array($query);
+        return $query->result_array();
     }
     
 /// Fonction pour modifier la catégorie d'un objet
@@ -61,9 +69,8 @@ class Objet_model extends CI_Model {
         $sql="SELECT * FROM objet WHERE nom LIKE %s AND idCategorie = %s";
         $sql = sprintf($sql, $this->db->escape($mc), $this->db->escape($categorie));
         $query = $this->db->query($sql); 
-        return convert_to_array($query);
+        return $query->result_array();
     }
     
 }
-?>
 

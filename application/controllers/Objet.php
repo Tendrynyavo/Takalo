@@ -13,24 +13,16 @@ class Objet extends CI_Controller {
         $data['user'] = $this->session->user;
         $data['objets'] = $this->objet_model->get_not_owned($this->session->user['id']);
         $data['content'] = 'liste_objet';
-		$this->load->view('template', $data);
+		
+        $this->load->view('template', $data);
 	}
 	
     public function gestion() {
         $data = array();
         $data['user'] = $this->session->user;
-        $data['objets'] = $this->objet_model->get_by_id($this->session->user['id']);
+        $data['objets'] = $this->objet_model->get_by_id_user($this->session->user['id']);
         $data['content'] = 'gestion_objet';
-		$this->load->view('template', $data);
+		
+        $this->load->view('template', $data);
 	}
-    
-    public function echange() {
-        $data = array();
-        $data['user'] = $this->session->user;
-        $data['objets'] = $this->objet_model->get_by_id($this->session->user['id']);
-        $data['content'] = 'gestion_objet';
-		$this->load->view('template', $data);
-	}
-
-
 }

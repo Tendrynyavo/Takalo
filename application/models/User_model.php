@@ -7,7 +7,7 @@ class User_model extends CI_Model {
 /// Fonction pour lister tous les users
     public function get_users() {
         $query = $this->db->query('SELECT * FROM user'); 
-        return convert_to_array($query);
+        return $query->result_array();
     }
 
 /// Fonction pour verifier un compte par son email et son mot de passe
@@ -15,8 +15,7 @@ class User_model extends CI_Model {
         $sql = 'SELECT * FROM user WHERE email = %s AND mdp = %s';
         $sql = sprintf($sql, $this->db->escape($user_email), $this->db->escape($user_mdp));
         $query = $this->db->query($sql);
-        $array = convert_to_array($query);
-        return $array;
+        return $query->result_array();;
     }
     
 /// Fonction pour verifier si le compte est un administrateur
@@ -24,8 +23,7 @@ class User_model extends CI_Model {
         $sql = 'SELECT * FROM user WHERE email = %s AND mdp = %s AND etat= %d';
         $sql = sprintf($sql, $this->db->escape($user_email), $this->db->escape($user_mdp), 10);
         $query = $this->db->query($sql);
-        $array = convert_to_array($query);
-        return $array;
+        return $query->result_array();
     }
 
 /// Fonction s'inscrire sur le site
@@ -39,7 +37,7 @@ class User_model extends CI_Model {
     public function get_count() {
         $sql='SELECT count(*) nb_user FROM user';
         $query = $this->db->query($sql); 
-        return convert_to_array($query);
+        return $query->result_array();
     }
 }
 ?>
