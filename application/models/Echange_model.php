@@ -54,9 +54,12 @@ class Echange_model extends CI_Model {
 
 /// Fonction pour créer une nouvelle catégorie
     public function echanger($id_objet1='', $id_objet2=''){
-        $sql='INSERT INTO echange(idObjet1, idObjet2, etat) VALUES (%s, %s, 3)';
+        $sql='INSERT INTO echange(idObjet1, idObjet2) VALUES (%s, %s)';
+        $sql2='UPDATE objet SET etat=3 WHERE id=%s AND id=%s';
         $sql = sprintf($sql, $this->db->escape($id_objet1), $this->db->escape($id_objet2));
-        $query = $this->db->query($sql); 
+        $sql2 = sprintf($sql2, $this->db->escape($id_objet1), $this->db->escape($id_objet2));
+        $query = $this->db->query($sql);
+        $query = $this->db->query($sql2); 
     }
 
 /// Fonction pour accepter un echange
@@ -65,7 +68,10 @@ class Echange_model extends CI_Model {
         $sql1 = sprintf($sql1, $this->db->escape($date), $this->db->escape($id_objet1), $this->db->escape($id_objet2));
         $sql2 = 'UPDATE echange e JOIN objet o1 ON e.idOBjet1=o1.id JOIN objet o2 ON e.idObjet2=o2.id SET o1.idUser=o2.idUser, o2.idUser=o1.idUser WHERE o1.id=%s AND o2.id=%s';
         $sql2 = sprintf($sql2, $this->db->escape($id_objet1), $this->db->escape($id_objet2));
+        $sql3 = 'UPDATE objet SET etat=0 WHERE id=%s AND id=%s';
+        $sql3 = sprintf($sql2, $this->db->escape($id_objet1), $this->db->escape($id_objet2));
         $query = $this->db->query($sql1);
         $query = $this->db->query($sql2);
+        $query = $this->db->query($sql3);
     }
 }
