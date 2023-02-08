@@ -33,14 +33,14 @@ class Echange_model extends CI_Model {
 
 /// Fonction pour obtenir le nombre d'échange
     public function get_count() {
-        $sql='SELECT count(*) nb_echanges FROM echange';
+        $sql='SELECT count(*) nb_echanges FROM echange WHERE date_acceptation IS NOT NULL';
         $query = $this->db->query($sql); 
         return $query->result_array();
     }
 
 /// Fonction pour obtenir le nombre d'échange par user
     public function get_count_per_user() {
-        $sql='SELECT o.idUser user, count(*) nb_echanges FROM echange e JOIN objet o ON e.idObjet1=o.id GROUP BY o.idUser';
+        $sql='SELECT o.idUser user, count(*) nb_echanges FROM echange e JOIN objet o ON e.idObjet1=o.id WHERE date_acceptation IS NOT NULL GROUP BY o.idUser';
         $query = $this->db->query($sql); 
         return $query->result_array();
     }
@@ -63,8 +63,8 @@ class Echange_model extends CI_Model {
     }
 
 /// Fonction pour accepter un echange
-    public function accepter_echange($date='', $id_objet1='', $id_objet2=''){
-        $sql1 = 'UPDATE echange e JOIN objet o1 ON e.idOBjet1=o1.id JOIN objet o2 ON e.idObjet2=o2.id SET date_acceptation=%s WHERE o1.id=%s AND o2.id=%s';
+    public function accepter_echange( $id_objet1='', $id_objet2=''){
+        $sql1 = 'UPDATE echange e JOIN objet o1 ON e.idOBjet1=o1.id JOIN objet o2 ON e.idObjet2=o2.id SET date_acceptation=now() WHERE o1.id=%s AND o2.id=%s';
         $sql1 = sprintf($sql1, $this->db->escape($date), $this->db->escape($id_objet1), $this->db->escape($id_objet2));
         $query = $this->db->query($sql1);
         $sql2 = 'UPDATE echange e JOIN objet o1 ON e.idOBjet1=o1.id JOIN objet o2 ON e.idObjet2=o2.id SET o1.idUser=o2.idUser, o2.idUser=o1.idUser WHERE o1.id=%s AND o2.id=%s';

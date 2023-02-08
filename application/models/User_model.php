@@ -34,8 +34,8 @@ class User_model extends CI_Model {
     }
 
 /// Fonction pour obtenir le nombre d'utilisateurs inscrits
-    public function get_count() {
-        $sql='SELECT count(*) nb_user FROM user';
+    public function get_count_inscrits() {
+        $sql='SELECT count(*) nb_user FROM user WHERE etat=0';
         $query = $this->db->query($sql); 
         return $query->result_array();
     }
