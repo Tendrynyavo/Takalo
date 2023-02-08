@@ -37,3 +37,8 @@ CREATE TABLE echange(
     idObjet2 int NOT NULL REFERENCES objet(id),
     date_acceptation DateTime DEFAULT NULL
 );
+
+CREATE TABLE annule(
+    id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    idEchange int NOT NULL REFERENCES echange(id)
+);
