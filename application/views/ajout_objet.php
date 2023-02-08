@@ -23,7 +23,7 @@
                     </div>
                     <!-- Product details-->
                     <div class="card-body p-4 pt-0">
-                        <form method="post" action="#">
+                        <form method="post" action="<?php echo base_url('index.php/objet/ajouter'); ?>">
                             <!-- NOM -->
                             <div class="form-group m-2">
                                 <label for="nom">Nom de Votre Objet</label>
@@ -46,6 +46,7 @@
                                 <input type="file" name="fileToUpload" id="fileToUpload">
                                 <input type="submit" value="Upload File" name="submit">
                             </div>
+                            <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
                             
                             <div class="form-group m-2"></div>
                                 <input type="submit" value="Confirmer" class="btn btn-outline-success mt-auto"></a>

@@ -55,4 +55,16 @@ class Objet extends Check_session_user {
         $this->objet_model->modif_objet($this->input->post('nom'), $this->input->post('descr'), $this->input->post('prix'), $this->input->post('id'));
         redirect(base_url('index.php/objet/gestion'));
     }
+
+    public function ajout() {
+        $data = array();
+        $data['user'] = $this->session->user;
+        $data['content'] = 'ajout_objet';
+        $this->load->view('template', $data);
+    }
+
+    public function ajouter() {
+        $this->objet_model->ajouter_objet($this->session->user['id'], $this->input->post('nom'), $this->input->post('descr'), $this->input->post('prix'));
+        redirect(base_url('index.php/objet'));
+    }
 }
