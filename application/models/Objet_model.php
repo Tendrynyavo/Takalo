@@ -12,7 +12,7 @@ class Objet_model extends CI_Model {
 
 /// Fonction pour obtenir un objet par son id
     public function get_by_id($id = 1) {
-        $sql='SELECT * FROM objet o JOIN user u ON o.idUser=u.id WHERE id = %s';
+        $sql='SELECT o.*, u.nom as user FROM objet o JOIN user u ON o.idUser=u.id WHERE o.id = %s';
         $sql = sprintf($sql, $this->db->escape($id));
         $query = $this->db->query($sql); 
         return $query->row();

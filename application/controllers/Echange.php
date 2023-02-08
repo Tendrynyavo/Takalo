@@ -8,6 +8,7 @@ class Echange extends Check_session_user {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('objet_model');
+		$this->load->model('echange_model');
 	}
 
     public function index() {
@@ -30,5 +31,10 @@ class Echange extends Check_session_user {
         $data['content'] = 'proposition';
 		
         $this->load->view('template', $data);
+    }
+
+    public function envoyer() {
+        $this->echange_model->echanger($this->input->get('id'), $this->input->get('choix'));
+        redirect(base_url('index.php/objet'));
     }
 }

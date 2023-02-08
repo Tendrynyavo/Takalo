@@ -35,5 +35,5 @@ CREATE TABLE echange(
     idObjet1 int NOT NULL REFERENCES objet(id),
     idObjet2 int NOT NULL REFERENCES objet(id),
     etat int NOT NULL,
-    date_acceptation DEFAULT NULL
+    date_acceptation DateTime DEFAULT NULL
 );

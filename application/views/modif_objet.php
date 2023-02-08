@@ -9,7 +9,7 @@
     </header>
 
     <!-- Section-->
-    <section class="py-5">
+    <section class="py-5" id="form">
         <div class="container px-4 px-lg-5 mt-1">
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                 <div class="col mb-5">
@@ -39,7 +39,9 @@
                                         <p><textarea class="form-control" id="bio" rows="3" name="descr"><?php echo $objet->descr; ?></textarea></p>
                                     </div>
                                     <input type="hidden" name="id" value="<?php echo $objet->id; ?>">
-
+                                    <?php if ($error != null) { ?>
+                                    <h3 class="text-danger"><?php echo $error; ?></h3>    
+                                    <?php } ?>
                                     <input type="submit" value="Confirmer" class="btn btn-outline-success mt-auto"></a>
                                 </form>
                             <a class="btn btn-outline-danger mt-2" href="<?php echo base_url('index.php/objet/supprimer'); ?>">Supprimer ce Produit</a>
