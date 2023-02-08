@@ -5,6 +5,7 @@ class Test extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('objet_model');
+		$this->load->model('echange_model');
 	}
 
 	public function test() {
@@ -22,7 +23,7 @@ class Test extends CI_Controller {
 	}
 
     public function test_func(){
-       $array=$this->objet_model->get_not_owned(3);
+       $array=$this->echange_model->accepter_echange($date='2000-01-31', $id_objet1=3, $id_objet2=5);
 		echo var_dump($array);
     }
 }	
