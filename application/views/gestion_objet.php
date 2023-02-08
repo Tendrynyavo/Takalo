@@ -34,7 +34,7 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Modifier</a></div>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="<?php echo base_url('index.php/objet/gerer?id='. $objet['id']); ?>">Modifier</a></div>
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Echange extends CI_Controller {
+require_once APPPATH . 'controllers/Check_session_user.php';
+
+class Echange extends Check_session_user {
 
 	public function __construct() {
 		parent::__construct();
@@ -21,4 +23,12 @@ class Echange extends CI_Controller {
 		
         $this->load->view('template', $data);
 	}
+
+    public function proposition() {
+        $data = array();
+        $data['user'] = $this->session->user;
+        $data['content'] = 'proposition';
+		
+        $this->load->view('template', $data);
+    }
 }

@@ -1,16 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?= base_url('assets/bootstrap/css/bootstrap.min.css') ?>">
-    <link rel="icon" href="<?= base_url('assets/img/responsabilite-sociale.png') ?>">
-    <title>Modification d'objet</title>
-</head>
-
-<body>
     <!-- Header-->
     <header class="bg-dark py-5">
         <div class="container px-4 px-lg-5 my-5">
@@ -30,40 +17,35 @@
                     <legend class="text-center">MacBook</legend>
                     <!-- Product image-->
                     <a href="#">
-                        <img class="card-img-top" src="<?= base_url('assets/img/macbook.png') ?>" alt="..." />
+                        <img class="card-img-top" src="<?php echo base_url('assets/img/macbook.png'); ?>" alt="..." />
                     </a>
 
                         <!-- Product details-->
                         <div class="card-body p-4">
-                                <form method="post" action="#">
+                                <form method="post" action="<?php echo base_url('index.php/objet/modifier'); ?>">
                                     
                                     <div class="form-group m-2">
                                         <label for="nom">Nom de Votre Objet</label>
-                                        <input type="text" class="form-control" id="nom" value="MacBook">
+                                        <input type="text" class="form-control" id="nom" name="nom" value="<?php echo $objet->nom; ?>">
                                     </div>
                                     
                                     <div class="form-group m-2">
                                         <label for="text">Son Prix Estimatif</label>
-                                        <input type="text" class="form-control" id="text" value="$2400">
+                                        <input type="text" class="form-control" id="text" name="prix" value="<?php echo $objet->prix; ?>">
                                     </div>
 
                                     <div class="form-group m-2">
-                                    <label for="bio">Description</label>
-                                    <p><textarea class="form-control" id="bio" rows="3">M2 Pro tena hiaka farany an'ny Apple</textarea></p>
-                                </div>
+                                        <label for="bio">Description</label>
+                                        <p><textarea class="form-control" id="bio" rows="3" name="descr"><?php echo $objet->descr; ?></textarea></p>
+                                    </div>
+                                    <input type="hidden" name="id" value="<?php echo $objet->id; ?>">
 
-                                <a class="btn btn-outline-success mt-auto" href="#">Confirmer</a>
-                                <a class="btn btn-outline-danger mt-2" href="#">Supprimer ce Produit</a>
+                                    <input type="submit" value="Confirmer" class="btn btn-outline-success mt-auto"></a>
                                 </form>
+                            <a class="btn btn-outline-danger mt-2" href="<?php echo base_url('index.php/objet/supprimer'); ?>">Supprimer ce Produit</a>
                         </div>
                     </div>
             </div>  
             </div>
         </div>
     </section>
-
-
-    <script src="<?= base_url('assets/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
-</body>
-
-</html>

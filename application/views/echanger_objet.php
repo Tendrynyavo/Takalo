@@ -37,7 +37,7 @@
                         <br>
                         <br>
                         <!-- Proposition Button-->
-                        <a href="<?php echo base_url('assets/img/'); ?>"><button class="btn btn-outline-success" type="submit">Proposer</button></a>
+                        <a href="<?php echo base_url('index.php/echange?id=' . $id . '&&choix=' . $choix); ?>"><button class="btn btn-outline-success" type="submit">Proposer</button></a>
                     </div>
                 </div>
             </div>

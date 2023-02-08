@@ -23,7 +23,7 @@ class Login extends CI_Controller {
 	}
 
 	public function deconnecte() {
-		unset($_SESSION['user']);
+		$this->session->unset_userdata('user');
 		redirect(base_url('index.php/login'));
 	}
 }

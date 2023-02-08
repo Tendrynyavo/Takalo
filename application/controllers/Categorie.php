@@ -9,7 +9,7 @@ class Categorie extends CI_Controller {
 	}
 
 	public function index() {
-		$data = [];
+		$data = array();
 		$data['categories'] = $this->categorie_model->get_categorie();
 		$data['objets'] = ($this->input->get('categorie') == null) ? $this->objet_model->get_by_idcategorie(1) : $this->objet_model->get_by_idcategorie($this->input->get('categorie'));
 		
@@ -17,7 +17,7 @@ class Categorie extends CI_Controller {
 	}
 
 	public function categoriser() {
-		$data = [];
+		$data = array();
 		$data['objet'] = $this->objet_model->get_by_id($this->input->get('id'));
 		$data['categories'] = $this->categorie_model->get_categorie();
 		

@@ -1,7 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Objet extends CI_Controller {
+require_once APPPATH . 'controllers/Check_session_user.php';
+
+class Objet extends Check_session_user {
 
 	public function __construct() {
 		parent::__construct();
@@ -25,4 +27,18 @@ class Objet extends CI_Controller {
 		
         $this->load->view('template', $data);
 	}
+
+    public function gerer() {
+        $data = array();
+        $data['user'] = $this->session->user;
+        $data['objet'] = $this->objet_model->get_by_id($this->input->get('id'));
+        $data['content'] = 'modif_objet';
+		
+        $this->load->view('template', $data);
+    }
+
+    public function modifier() {
+        $this->objet_model->modif_objet($this->input->post('nom'), $this->input->post('descr'), $this->input->post('prix'), $this->input->post('id'));
+        redirect(base_url('index.php/objet/gestion'));
+    }
 }

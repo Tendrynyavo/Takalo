@@ -68,6 +68,7 @@ class Objet_model extends CI_Model {
     public function modif_objet($nom='', $descr='', $prix='', $id_objet='') {
         $sql = 'UPDATE objet SET nom=%s, descr = %s,  prix = %s WHERE id = %s';
         $sql = sprintf($sql, $this->db->escape($nom), $this->db->escape($descr), $this->db->escape($prix), $this->db->escape($id_objet));
+        echo $sql;
         $query = $this->db->query($sql);
     }    
 
