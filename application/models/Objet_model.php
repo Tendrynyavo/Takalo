@@ -18,6 +18,21 @@ class Objet_model extends CI_Model {
         return $query->row();
     }
 
+/// Fonction pour obtenir les photos d'un objet par son id
+    public function get_photo() {
+        $sql='SELECT * FROM photo p JOIN objet o ON p.idObjet=o.id';
+        $query = $this->db->query($sql); 
+        return $query->row();
+    }
+
+/// Fonction pour obtenir les photos d'un objet par son id
+    public function get_photo_by_objet($id_objet = 1) {
+        $sql='SELECT * FROM photo p JOIN objet o ON p.idObjet=o.id WHERE o.id=%s';
+        $sql = sprintf($sql, $this->db->escape($id_objet));
+        $query = $this->db->query($sql); 
+        return $query->row();
+    }
+
 /// Fonction pour obtenir un objet par son id
     public function get_by_id_user($id = 1) {
         $sql='SELECT * FROM objet WHERE iduser = %s';
