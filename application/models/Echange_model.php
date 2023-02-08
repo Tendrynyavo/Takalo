@@ -7,42 +7,48 @@ class Echange_model extends CI_Model {
 /// Fonction pour lister les échanges
     public function get_echanges() {
         $query = $this->db->query('SELECT * FROM echange'); 
-        return convert_to_array($query);
+        return $query->result_array();
     }
 
     
 /// Fonction pour lister les échanges
     public function get_dipo() {
         $query = $this->db->query('SELECT * FROM echange WHERE date_acceptation IS NULL'); 
-        return convert_to_array($query);
+        return $query->result_array();
     }
     
 /// Fonction pour lister les échanges pour vous
     public function get_dipo_by_user($id_user) {
-        $query = $this->db->query('SELECT * FROM echange e JOIN objet o ON e.idObjet1=o.id WHERE date_acceptation IS NULL AND o.idUser=%s');
+        $sql = 'SELECT * FROM echange e JOIN objet o ON e.idObjet1=o.id WHERE date_acceptation IS NULL AND o.idUser=%s';
         $sql = sprintf($sql, $this->db->escape($id_user));
-        return convert_to_array($query);
+        $query = $this->db->query($sql);
+        $array = $query->result_array();
+        for ($i = 0; $i < count($array); $i++) {
+            $array[$i]['objet1'] = $this->objet_model->get_by_id($array[$i]['idobjet1']);
+            $array[$i]['objet2'] = $this->objet_model->get_by_id($array[$i]['idobjet2']);
+        }
+        return $array;
     }
 
 /// Fonction pour obtenir le nombre d'échange
     public function get_count() {
         $sql='SELECT count(*) nb_echanges FROM echange';
         $query = $this->db->query($sql); 
-        return convert_to_array($query);
+        return $query->result_array();
     }
 
 /// Fonction pour obtenir le nombre d'échange par user
     public function get_count_per_user() {
         $sql='SELECT o.idUser user, count(*) nb_echanges FROM echange e JOIN objet o ON e.idObjet1=o.id GROUP BY o.idUser';
         $query = $this->db->query($sql); 
-        return convert_to_array($query);
+        return $query->result_array();
     }
 
 /// Fonction pour obtenir l'hitorique des echange effectués'
     public function get_historique() {
         $sql='SELECT o1.idUser user1, e.idObjet1, o2.idUser user2, e.idObjet2, e.date_acceptation FROM echange e JOIN objet o1 ON e.idObjet1=o1.id JOIN OBJET o2 ON e.idObjet2=o2.id GROUP BY o1.idUser, o2.idUser';
         $query = $this->db->query($sql); 
-        return convert_to_array($query);
+        return $query->result_array();
     }
 
 /// Fonction pour créer une nouvelle catégorie

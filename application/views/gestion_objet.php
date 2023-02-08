@@ -1,9 +1,17 @@
+<!-- PAGE MES OBJETS -->     <!-- PAGE MES OBJETS -->     <!-- PAGE MES OBJETS -->
+
 <!-- Header-->
-    <header class="bg-dark py-5">
+    <header class="bg-dark pt-5 pb-2">
         <div class="container px-4 px-lg-5 my-5">
             <div class="text-center text-white">
                 <h1 class="display-4 fw-bolder">Voici vos Objets</h1>
                 <p class="lead fw-normal text-white-50 mb-0">Ici vous pouvez apporter des modifications</p>
+                <p class="lead fw-normal text-white-50 mt-5">
+                    ou 
+                    <button class="btn btn-outline-light">
+                        <img src="<?php echo base_url('assets/img/plus.png'); ?>" width="35px" height="35px"> Ajoutez un objet
+                    </button>
+                </p>
             </div>
         </div>
     </header>
