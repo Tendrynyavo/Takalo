@@ -1,7 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Objet extends CI_Controller {
+require_once APPPATH . 'controllers/Check_session_user.php';
+
+class Objet extends Check_session_user {
 
 	public function __construct() {
 		parent::__construct();
