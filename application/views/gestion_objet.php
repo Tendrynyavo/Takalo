@@ -49,8 +49,8 @@
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent input-group">
                             <div class="text-center"><a class="btn btn-outline-dark mt-auto mx-2" href="<?php echo base_url('index.php/objet/gerer?id='. $objet['id']); ?>">Modifier</a></div>
                                 <fieldset>
-                                    <button class="btn btn-outline-primary"><a href="#" class="text-decoration-none text-dark">+/- 10%</a></button>
-                                    <button class="btn btn-outline-primary"><a href="#" class="text-decoration-none text-dark">+/- 20%</a></button>
+                                    <button class="btn btn-outline-primary"><a href="<?php echo base_url('index.php/objet/filtre?pourcentage=0.1&&objet=' . $objet['id']); ?>" class="text-decoration-none text-dark">+/- 10%</a></button>
+                                    <button class="btn btn-outline-primary"><a href="<?php echo base_url('index.php/objet/filtre?pourcentage=0.2&&objet=' . $objet['id']); ?>" class="text-decoration-none text-dark">+/- 20%</a></button>
                                 </fieldset>
                             </div>
                     </div>
