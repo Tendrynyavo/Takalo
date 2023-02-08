@@ -21,7 +21,7 @@ class Objet_model extends CI_Model {
 
 /// Fonction pour obtenir un objet par son id
     public function get_by_id($id = 1) {
-        $sql='SELECT o.*, u.nom as user FROM objet o JOIN user u ON o.idUser=u.id WHERE o.id = %s';
+        $sql='SELECT o.*, u.nom as user, u.id as user_id FROM objet o JOIN user u ON o.idUser=u.id WHERE o.id = %s';
         $sql = sprintf($sql, $this->db->escape($id));
         $query = $this->db->query($sql);
         $objet = $query->row_array();
@@ -102,9 +102,14 @@ class Objet_model extends CI_Model {
 /// Fonction de recherche
     public function rechercher_objet($mot_cle='', $categorie='') {
         $mc='%'.$mot_cle.'%';
-        $sql="SELECT * FROM objet WHERE nom LIKE %s AND idCategorie = %s";
-        $sql = sprintf($sql, $this->db->escape($mc), $this->db->escape($categorie));
-        $query = $this->db->query($sql); 
-        return $query->result_array();
+        $sql="SELECT * FROM objet WHERE nom LIKE %s";
+        $sql = sprintf($sql, $this->db->escape($mc));
+        if ($categorie != -1) $sql = $sql . ' AND idCategorie = ' . $this->db->escape($categorie);
+        $query = $this->db->query($sql);
+        $array = $query->result_array();
+        for ($i = 0; $i < count($array); $i++) {
+            $array[$i]['photo'] = $this->objet_model->get_photo_by_objet($array[$i]['id']);
+        }
+        return $array;
     }   
 }
