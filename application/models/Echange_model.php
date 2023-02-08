@@ -33,14 +33,14 @@ class Echange_model extends CI_Model {
 
 /// Fonction pour obtenir le nombre d'échange
     public function get_count() {
-        $sql='SELECT count(*) nb_echanges FROM echange';
+        $sql='SELECT count(*) nb_echanges FROM echange WHERE date_acceptation IS NOT NULL';
         $query = $this->db->query($sql); 
         return $query->result_array();
     }
 
 /// Fonction pour obtenir le nombre d'échange par user
     public function get_count_per_user() {
-        $sql='SELECT o.idUser user, count(*) nb_echanges FROM echange e JOIN objet o ON e.idObjet1=o.id GROUP BY o.idUser';
+        $sql='SELECT o.idUser user, count(*) nb_echanges FROM echange e JOIN objet o ON e.idObjet1=o.id WHERE date_acceptation IS NOT NULL GROUP BY o.idUser';
         $query = $this->db->query($sql); 
         return $query->result_array();
     }
