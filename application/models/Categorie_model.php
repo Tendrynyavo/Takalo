@@ -7,7 +7,7 @@ class Categorie_model extends CI_Model {
 /// Fonction pour lister les catégories
     public function get_categorie() {
         $query = $this->db->query('SELECT * FROM categorie'); 
-        return $query->result_array());
+        return $query->result_array();
     }
 
 /// Fonction pour chercher une catégorie à partir de son id
@@ -15,7 +15,7 @@ class Categorie_model extends CI_Model {
         $sql='SELECT * FROM categorie WHERE id = %d';
         $sql = sprintf($sql, $this->db->escape($id));
         $query = $this->db->query($sql); 
-        return $query->result_array());
+        return $query->result_array();
     }
 
 /// Fonction pour créer une nouvelle catégorie

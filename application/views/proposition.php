@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?= base_url('assets/bootstrap/css/bootstrap.min.css') ?>">
-    <link rel="icon" href="<?= base_url('assets/img/responsabilite-sociale.png') ?>">
-    <title>Proposition</title>
-</head>
-
-<body>
-
     <!-- Header-->
     <header class="bg-dark py-5">
         <div class="container px-4 px-lg-5 my-5">
@@ -32,7 +18,7 @@
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- Product image-->
-                        <img class="card-img-top" src="<?= base_url('assets/img/basket.png') ?>" alt="..." width="284px"
+                        <img class="card-img-top" src="<?php echo base_url('assets/img/basket.png'); ?>" alt="..." width="284px"
                             height="177px" />
                         <!-- Product details-->
                         <div class="card-body p-4">
@@ -56,7 +42,7 @@
                 <div class="col mb-5">
                     <div class="h-100">
                         <!-- Product image-->
-                        <img class="card-img-top" src="<?= base_url('assets/img/exchange.png') ?>" alt="..."/>
+                        <img class="card-img-top" src="<?php echo base_url('assets/img/exchange.png'); ?>" alt="..."/>
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -72,7 +58,7 @@
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- Product image-->
-                        <img class="card-img-top" src="<?= base_url('assets/img/macbook.png') ?>" alt="..."
+                        <img class="card-img-top" src="<?php echo base_url('assets/img/macbook.png'); ?>" alt="..."
                             width="284px" height="177px" />
                         <!-- Product details-->
                         <div class="card-body p-4">
@@ -96,9 +82,3 @@
         
         <?php } ?>
     </section>
-
-
-    <script src="<?= base_url('assets/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
-</body>
-
-</html>

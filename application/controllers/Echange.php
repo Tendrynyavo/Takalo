@@ -23,4 +23,12 @@ class Echange extends Check_session_user {
 		
         $this->load->view('template', $data);
 	}
+
+    public function proposition() {
+        $data = array();
+        $data['user'] = $this->session->user;
+        $data['content'] = 'proposition';
+		
+        $this->load->view('template', $data);
+    }
 }
