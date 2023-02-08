@@ -58,9 +58,10 @@ class Objet_model extends CI_Model {
     }
 
 /// Fonction pour lister les échanges
-    public function get_pourcentage($pourcentage='', $id_objet='', $id_user='') {
-        $query = $this->db->query('SELECT * FROM objet WHERE etat=0, prix>(prix-prix*%s), prix<(prix+prix*%s), NOT idUser=%s, id=%s');
-        $sql = sprintf($sql, $this->db->escape($pourcentage), $this->db->escape($pourcentage), $this->db->escape($id_user), $this->db->escape($id_objet)); 
+    public function get_pourcentage($pourcentage='', $id_object, $id_user='') {
+        $objet = $this->objet_model->get_by_id($id_object);
+        $query = $this->db->query('SELECT * FROM objet WHERE idUser != %s AND etat = 0 AND prix > (prix-prix*%s) AND c<(prix+prix*%s) AND id != %s');
+        $sql = sprintf($sql, $this->db->escape($id_user), $this->db->escape($pourcentage), $this->db->escape($pourcentage), $this->db->escape($id_objet)); 
         return $query->result_array();
     }
 
@@ -125,5 +126,15 @@ class Objet_model extends CI_Model {
         $sql='UPDATE objet SET etat=% WHERE id=%s';
         $sql=sprintf($sql, $this->db->escape($etat), $this->db->escape($id_objet1));
         $this->db->query($sql);
+    }
+
+/// Fonction pour lister tous les objets
+    public function compare_prix($id_objet1='', $id_objet2='') {
+        $query = $this->db->query('SELECT ((((SELECT prix FROM objet WHERE id=%s)-(SELECT prix FROM objet WHERE id=%s))*100)/(SELECT prix FROM objet WHERE id=%s)) pourcentage_diff FROM objet'); 
+        $array = $query->row_array();
+        for ($i = 0; $i < count($array); $i++) {
+            $array[$i]['photo'] = $this->objet_model->get_photo_by_objet($array[$i]['id']);
+        }
+        return $array;
     }
 }
