@@ -43,4 +43,4 @@ INSERT INTO photo(photo, idObjet) VALUES
 ('assets/img/doctor_sleep2.jpg', 9),
 ('assets/img/GTA_V1.jpg', 10),
 ('assets/img/GTA_V2.jpg', 10),
-('assets/img/GTA_V3.jpg', 10),
+('assets/img/GTA_V3.jpg', 10);
