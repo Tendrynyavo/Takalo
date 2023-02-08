@@ -29,7 +29,7 @@
                 
                 <ul class="navbar-nav mx-auto">
                     <img src="<?php echo base_url('assets/img/user.png'); ?>" width="35px" height="35px">
-                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/objet/gestion'); ?>"><?php //echo $user['nom']; ?></a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/objet/gestion'); ?>"><?php echo $user['nom']; ?></a></li>
                 </ul>
 
             <!-- RESEARCH FORM -->
