@@ -28,6 +28,7 @@ class Echange extends Check_session_user {
     public function proposition() {
         $data = array();
         $data['user'] = $this->session->user;
+        //$data['propositions'] = $this->echange_model->get_dipo_by_user($this->session->user['id']);
         $data['content'] = 'proposition';
 		
         $this->load->view('template', $data);
