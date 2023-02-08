@@ -21,9 +21,8 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$data = array();
-		$data['content'] = 'ajout_objet';
+		$data['content'] = 'statistique';
 		$this->load->view('template', $data);
-		
 	}		
 
 	public function sign()

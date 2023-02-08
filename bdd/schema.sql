@@ -21,7 +21,8 @@ CREATE TABLE objet(
     nom VARCHAR(50) NOT NULL,
     idCategorie int REFERENCES categorie(id),
     descr TEXT NOT NULL,
-    prix DOUBLE PRECISION
+    prix DOUBLE PRECISION, 
+    etat int NOT NULL
 );
 
 CREATE TABLE photo(
@@ -34,6 +35,5 @@ CREATE TABLE echange(
     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idObjet1 int NOT NULL REFERENCES objet(id),
     idObjet2 int NOT NULL REFERENCES objet(id),
-    etat int NOT NULL,
     date_acceptation DateTime DEFAULT NULL
 );

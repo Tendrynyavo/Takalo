@@ -26,22 +26,22 @@
 
         <!-- Fifanarahana -->
         
-        <div class="col mb-5">
-            <div class="h-100">
-                <!-- Product image-->
-                <img class="card-img-top" src="<?php echo base_url('assets/img/accept.png'); ?>" alt="..."/>
-                <!-- Product details-->
-                <div class="card-body p-4">
-                    <div class="text-center">
-                        <h4 class="fw-bolder"><strong>Proposer l'échange</strong></h4>
-                        <br>
-                        <br>
-                        <!-- Proposition Button-->
-                        <a href="<?php echo base_url('index.php/echange/envoyer?id=' . $id . '&&choix=' . $choix); ?>"><button class="btn btn-outline-success" type="submit">Proposer</button></a>
+            <div class="col mb-5">
+                <div class="h-100">
+                    <!-- Product image-->
+                    <img class="card-img-top" src="<?php echo base_url('assets/img/accept.png'); ?>" alt="..."/>
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <h4 class="fw-bolder"><strong>Proposer l'échange</strong></h4>
+                            <br>
+                            <br>
+                            <!-- Proposition Button-->
+                            <a href="<?php echo base_url('index.php/echange/envoyer?id=' . $id . '&&choix=' . $choix); ?>"><button class="btn btn-outline-success" type="submit">Proposer</button></a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
         <!-- Anao -->
             <div class="col mb-5">
