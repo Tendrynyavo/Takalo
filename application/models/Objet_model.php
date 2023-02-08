@@ -7,7 +7,11 @@ class Objet_model extends CI_Model {
 /// Fonction pour lister tous les objets
     public function get_objets() {
         $query = $this->db->query('SELECT * FROM objet'); 
-        return convert_to_array($query);
+        $array = $query->row_array();
+        for ($i = 0; $i < count($array); $i++) {
+            $array[$i]['photo'] = $this->objet_model->get_photo_by_objet($array[$i]['id']);
+        }
+        return $array;
     }
 
 /// Fonction pour obtenir un objet par son id
@@ -29,6 +33,7 @@ class Objet_model extends CI_Model {
     public function get_photo_by_objet($id_objet = 1) {
         $sql='SELECT * FROM photo p JOIN objet o ON p.idObjet=o.id WHERE o.id=%s';
         $sql = sprintf($sql, $this->db->escape($id_objet));
+        echo $sql;
         $query = $this->db->query($sql); 
         return $query->result_array();
     }
@@ -46,7 +51,11 @@ class Objet_model extends CI_Model {
         $sql='SELECT * FROM objet WHERE NOT iduser = %s';
         $sql = sprintf($sql, $this->db->escape($id));
         $query = $this->db->query($sql); 
-        return $query->result_array();
+        $array=$query->result_array();
+        for ($i = 0; $i < count($array); $i++) {
+            $array[$i]['photo'] = $this->objet_model->get_photo_by_objet($array[$i]['id']);
+        }
+        return $array;
     }
 
 /// Fonction pour obtenir un objet par son idcategorie
