@@ -48,7 +48,7 @@
                             <div class="text-center">
                                 <!-- Action Button-->
                                 <button class="btn btn-outline-success"><a href="<?php echo base_url('index.php/echange/accepter?id=' . $proposition['objet1']['id'] .'&&choice=' .$proposition['objet2']['id'] . '&&user1=' . $proposition['objet1']['user_id'] . '&&user2=' .$proposition['objet2']['user_id']); ?>" class="text-decoration-none">Accepter</a></button>
-                                <button class="btn btn-outline-danger">Refuser</button>
+                                <button class="btn btn-outline-danger"><a href="<?php echo base_url('index.php/echange/refuser?id=' . $proposition['id']); ?>" class="text-decoration-none">Refuser</a></button>
                             </div>
                         </div>
                     </div>

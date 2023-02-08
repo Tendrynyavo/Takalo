@@ -19,7 +19,7 @@ class Echange_model extends CI_Model {
         
 /// Fonction pour lister les échanges pour vous
     public function get_dipo_by_user($id_user) {
-        $sql = 'SELECT * FROM echange e JOIN objet o ON e.idObjet1=o.id WHERE o.etat=3 AND o.idUser=%s';
+        $sql = 'SELECT e.* FROM echange e JOIN objet o ON e.idObjet1=o.id WHERE o.etat=3 AND o.idUser=%s AND e.id NOT IN (SELECT idEchange FROM annule)';
         $sql = sprintf($sql, $this->db->escape($id_user));
         echo $sql;
         $query = $this->db->query($sql);
@@ -76,14 +76,10 @@ class Echange_model extends CI_Model {
         $sql4 = 'UPDATE objet SET etat=0 WHERE id=%s OR id=%s';
         $sql4 = sprintf($sql4, $this->db->escape($id_objet1), $this->db->escape($id_objet2));
         $this->db->query($sql4);
-        echo $sql1;
-        echo $sql2;
-        echo $sql3;
-        echo $sql4;
     }
 
 /// Fonction pour annuler un échange
-    public function annuler($id_echange=''){
+    public function annuler($id_echange='') {
         $sql='INSERT INTO annule (idEchange) VALUES (%s)';
         $sql=sprintf($sql, $this->db->escape($id_echange));
         $this->db->query($sql);
