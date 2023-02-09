@@ -1,12 +1,12 @@
 CREATE DATABASE takalo;
 USE takalo;
 
-CREATE TABLE categorie(
+CREATE TABLE categorie (
     id int AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(50)
 );
 
-CREATE TABLE user(
+CREATE TABLE user (
     id int AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(50) DEFAULT NULL,
     prenom VARCHAR(50) DEFAULT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE user(
     etat int NOT NULL
 );
 
-CREATE TABLE objet(
+CREATE TABLE objet (
     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idUser int REFERENCES user(id),
     nom VARCHAR(50) NOT NULL,
@@ -25,20 +25,27 @@ CREATE TABLE objet(
     etat int NOT NULL
 );
 
-CREATE TABLE photo(
+CREATE TABLE photo (
     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     photo VARCHAR(100) NOT NULL,
     idObjet int NOT NULL REFERENCES objet(id)
 );
 
-CREATE TABLE echange(
+CREATE TABLE echange (
     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idObjet1 int NOT NULL REFERENCES objet(id),
     idObjet2 int NOT NULL REFERENCES objet(id),
     date_acceptation DateTime DEFAULT NULL
 );
 
-CREATE TABLE annule(
+CREATE TABLE annule (
     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idEchange int NOT NULL REFERENCES echange(id)
+);
+
+CREATE TABLE historique (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    idObjet INT REFERENCES objet(id),
+    proprietaire INT REFERENCES user(id),
+    date DATETIME
 );

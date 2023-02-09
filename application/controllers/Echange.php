@@ -80,7 +80,7 @@ class Echange extends CI_Controller {
         if (!$this->session->has_userdata('objet')) $this->session->set_userdata('objet', array());
         $ajout = $this->session->objet;
         $id = $this->input->get('id');
-        if (!in_array($ajout, $id)) $ajout[] = $id;
+        if (!in_array($id, $ajout)) $ajout[] = $id;
         $this->session->set_userdata('objet', $ajout);
         redirect(base_url('index.php/echange?id='.$this->input->get('objet')));
     }
