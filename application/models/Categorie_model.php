@@ -19,14 +19,14 @@ class Categorie_model extends CI_Model {
     }
 
 /// Fonction pour créer une nouvelle catégorie
-    public function new_categorie($nom){
+    public function new_categorie($nom) {
         $sql='INSERT INTO categorie(nom) VALUES (%s)';
         $sql = sprintf($sql, $this->db->escape($nom));
         $query = $this->db->query($sql); 
     }
 
 /// Fonction pour retirer une catégorie
-    public function delete($nom){
+    public function delete($nom) {
         $sql='DELETE FROM categorie WHERE nom = %s';
         $sql = sprintf($sql, $this->db->escape($nom));
         $query = $this->db->query($sql); 

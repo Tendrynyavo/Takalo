@@ -6,7 +6,7 @@ class User_model extends CI_Model {
 
 /// Fonction pour lister tous les users
     public function get_users() {
-        $query = $this->db->query('SELECT * FROM user'); 
+        $query = $this->db->query('SELECT * FROM user');
         return $query->result_array();
     }
     

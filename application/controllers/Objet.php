@@ -78,11 +78,6 @@ class Objet extends Check_session_user {
         $this->load->view('template', $data);
     }
 
-    public function ajouter() {
-        $this->objet_model->ajouter_objet($this->session->user['id'], $this->input->post('nom'), $this->input->post('descr'), $this->input->post('prix'));
-        redirect(base_url('index.php/objet'));
-    }
-
     public function filtre() {
         $data = array();
         $data['user'] = $this->session->user;
@@ -91,5 +86,31 @@ class Objet extends Check_session_user {
         $data['objets'] = $this->objet_model->get_pourcentage($this->input->get('pourcentage'), $this->input->get('objet'), $this->session->user['id']);
         $data['categories'] = $this->categorie_model->get_categorie();
         $this->load->view('template', $data);
+    }
+
+    public function ajouter() {
+        // load base_url
+        $this->load->helper('url');
+        // Check form submit or not
+        if($this->input->post('upload') != NULL ) {
+            $data = array();
+            if(!empty($_FILES['file']['name'])) {
+                // Set preference
+                $config['upload_path'] = 'assets/img/';
+                $config['allowed_types'] = 'jpg|jpeg|png|gif';
+                $config['max_size'] = '100'; // max_size in kb
+                $config['file_name'] = $_FILES['file']['name'];
+                // Load upload library
+                $this->load->library('upload',$config);
+                // File upload
+                if($this->upload->do_upload('file')) {
+                    // Get data about the file
+                    $uploadData = $this->upload->data();
+                    $filename = $uploadData['file_name'];
+                    $this->objet_model->ajouter_objet($this->session->user['id'], $this->input->post('nom'), $this->input->post('descr'), $this->input->post('prix'), $filename);
+                }
+            }
+        }
+        redirect(base_url('index.php/objet'));
     }
 }

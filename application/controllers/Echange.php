@@ -71,4 +71,12 @@ class Echange extends Check_session_user {
         
         $this->load->view('template', $data);
     }
+
+    public function ajouter() {
+        if (!$this->session->has_userdata('objet')) $this->session->set_userdata('objet', array());
+        $ajout = $this->session->objet;
+        $ajout[] = $this->input->get('id');
+        $this->session->set_userdata('objet', $ajout);
+        redirect(base_url('index.php/echange?choix='.$this->input->get('choix')));
+    }
 }

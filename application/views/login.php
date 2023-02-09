@@ -30,14 +30,14 @@
                 <div class="col-md-5 col-xl-4 text-center text-md-start">
                     <h2 class="display-6 fw-bold mb-5"><span class="underline pb-1"><strong>User Login</strong><br /></span></h2>
                     <form method="post" action="<?php echo base_url('index.php/login/check'); ?>">
-                        <div class="mb-3"><input class="shadow form-control" type="email" name="email" placeholder="Email" value="bob@gmail.com" /></div>
-                        <div class="mb-3"><input class="shadow form-control" type="password" name="password" placeholder="Password" value="1234" /></div>
+                        <div class="mb-3"><input class="shadow form-control" type="email" name="email" placeholder="Email" value="mp@gmail.com" /></div>
+                        <div class="mb-3"><input class="shadow form-control" type="password" name="password" placeholder="Password" value="abcd" /></div>
                         <div class="mb-5"><button class="btn btn-primary shadow" type="submit">Se Connecter</button></div>
                         <p class="text-muted"></p>
                     </form>
 
                     <div class="mb-2">
-                            <p>Vous n'avez pas de compte? 
+                            <p>Vous n'avez pas de compte ?
                                 <a class="btn btn-secondary shadow" role="button" href="<?php echo base_url('index.php/sign_up'); ?>">S'inscrire</a>
                             </p>
                     </div>

@@ -21,7 +21,6 @@ class Echange_model extends CI_Model {
     public function get_dipo_by_user($id_user) {
         $sql = 'SELECT e.* FROM echange e JOIN objet o ON e.idObjet1=o.id WHERE o.etat=3 AND o.idUser=%s AND e.id NOT IN (SELECT idEchange FROM annule)';
         $sql = sprintf($sql, $this->db->escape($id_user));
-        echo $sql;
         $query = $this->db->query($sql);
         $array = $query->result_array();
         for ($i = 0; $i < count($array); $i++) {

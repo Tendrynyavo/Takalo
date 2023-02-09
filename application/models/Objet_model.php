@@ -48,7 +48,6 @@ class Objet_model extends CI_Model {
     public function get_by_id_user($id = 1) {
         $sql='SELECT * FROM objet WHERE iduser = %s';
         $sql = sprintf($sql, $this->db->escape($id));
-        echo $sql;
         $query = $this->db->query($sql); 
         $array = $query->result_array();
         for ($i = 0; $i < count($array); $i++) {
@@ -101,15 +100,28 @@ class Objet_model extends CI_Model {
     public function modif_objet($nom='', $descr='', $prix='', $id_objet='') {
         $sql = 'UPDATE objet SET nom=%s, descr = %s,  prix = %s WHERE id = %s';
         $sql = sprintf($sql, $this->db->escape($nom), $this->db->escape($descr), $this->db->escape($prix), $this->db->escape($id_objet));
-        echo $sql;
         $query = $this->db->query($sql);
     }    
 
 /// Fonction ajouter un objet au site
-    public function ajouter_objet($id_user='',$nom='', $descr = '', $prix='') {
-        $sql = 'INSERT INTO objet (idUser, nom, descr, prix) VALUES (%s, %s, %s, %s)';
-        $sql = sprintf($sql, $this->db->escape($id_user), $this->db->escape($nom), $this->db->escape($id_categorie), $this->db->escape($descr), $this->db->escape($prix));
+    public function ajouter_photo($photo) {
+        $id = $this->objet_model->get_last_id();
+        $sql = 'INSERT INTO photo (photo, idObjet) VALUES (%s, %s)';
+        $sql = sprintf($sql, $this->db->escape('assets/img/'. $photo), $this->db->escape($id['last_id']));
+        $this->db->query($sql);
+    }
+    
+    public function ajouter_objet($id_user='',$nom='', $descr = '', $prix='', $photo) {
+        $sql = 'INSERT INTO objet (idUser, nom, idCategorie, descr, prix) VALUES (%s, %s, 4, %s, %s)';
+        $sql = sprintf($sql, $this->db->escape($id_user), $this->db->escape($nom), $this->db->escape($descr), $this->db->escape($prix));
+        $this->db->query($sql);
+        $this->objet_model->ajouter_photo($photo);
+    }
+    
+    public function get_last_id() {
+        $sql = 'SELECT id as last_id from objet order by id DESC LIMIT 1';
         $query = $this->db->query($sql);
+        return $query->row_array();
     }
 
 /// Fonction de recherche
