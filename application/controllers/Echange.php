@@ -3,10 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 require_once APPPATH . 'controllers/Check_session_user.php';
 
-class Echange extends Check_session_user {
+class Echange extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
+        if (!$this->session->has_userdata('user')) redirect(base_url('index.php/login')); 
 		$this->load->model('objet_model');
 		$this->load->model('echange_model');
 		$this->load->model('categorie_model');
@@ -39,7 +40,10 @@ class Echange extends Check_session_user {
     }
 
     public function envoyer() {
-        $this->echange_model->echanger($this->input->get('id'), $this->input->get('choix'));
+        $ajouts = $this->session->objet;
+        foreach ($ajouts as $ajout) {
+            $this->echange_model->echanger($this->input->get('id'), $ajout);
+        }
         redirect(base_url('index.php/objet'));
     }
 
@@ -75,8 +79,21 @@ class Echange extends Check_session_user {
     public function ajouter() {
         if (!$this->session->has_userdata('objet')) $this->session->set_userdata('objet', array());
         $ajout = $this->session->objet;
-        $ajout[] = $this->input->get('id');
+        $id = $this->input->get('id');
+        if (!in_array($ajout, $id)) $ajout[] = $id;
         $this->session->set_userdata('objet', $ajout);
-        redirect(base_url('index.php/echange?choix='.$this->input->get('choix')));
+        redirect(base_url('index.php/echange?id='.$this->input->get('objet')));
+    }
+
+    public function afficher() {
+        $data = array();
+        $data['user'] = $this->session->user;
+        if (!$this->session->has_userdata('objet')) $this->session->set_userdata('objet', array());
+        $data['objets'] = $this->objet_model->get_objet_ajout($this->session->objet);
+        $data['id'] = $this->input->get('objet');
+        $data['content'] = 'liste_ajout';
+        $data['categories'] = $this->categorie_model->get_categorie();
+		
+        $this->load->view('template', $data);
     }
 }

@@ -73,6 +73,8 @@
                             <input type="hidden" name="id" value="<?php echo $id; ?>">
                             <button class="btn btn-outline-secondary mt-4" type="submit">Choisir</button>
                         </form>
+                        <button class="btn btn-outline-primary mt-4" style="margin-left: 70px;" type="submit"><a href="<?php echo base_url('index.php/echange/ajouter?id='.$objet_choice['id'].'&&objet='.$id); ?>">Ajouter</a></button>
+                        <button class="btn btn-outline-primary mt-4" style="margin-left: 70px;" type="submit"><a href="<?php echo base_url('index.php/echange/afficher?objet='.$id); ?>">Afficher</a></button>
                     </div>
                 </div>
             </div>

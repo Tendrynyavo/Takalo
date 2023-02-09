@@ -154,4 +154,12 @@ class Objet_model extends CI_Model {
         }
         return $array;
     }
+
+    public function get_objet_ajout($ajouts) {
+        $array = array();
+        foreach ($ajouts as $ajout) {
+            $array[] = $this->objet_model->get_by_id($ajout);
+        }
+        return $array;
+    }
 }
