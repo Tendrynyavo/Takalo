@@ -45,22 +45,19 @@ class Echange_model extends CI_Model {
     }
     
     /// Fonction pour obtenir l'hitorique des echange effectués'
-    public function get_historique() {
-        $sql='SELECT o1.idUser user1, e.idObjet1, o2.idUser user2, e.idObjet2, e.date_acceptation FROM echange e JOIN objet o1 ON e.idObjet1=o1.id JOIN objet o2 ON e.idObjet2=o2.id WHERE date_acceptation IS NOT NULL GROUP BY o1.idUser, o2.idUser';
+    public function get_historique($id_objet) {
+        $sql = 'SELECT u.nom, date
+                FROM historique h
+                    JOIN objet o ON h.idObjet=o.id
+                    JOIN user u ON h.proprietaire=u.id 
+                WHERE idObjet = %s';
+        $sql = sprintf($sql, $this->db->escape($id_objet));
         $query = $this->db->query($sql);
-        $array = $query->result_array();
-        $this->load->model('user_model');
-        for ($i = 0; $i < count($array); $i++) {
-            $array[$i]['user_1'] = $this->user_model->get_user_by_id($array[$i]['user1']);
-            $array[$i]['user_2'] = $this->user_model->get_user_by_id($array[$i]['user2']);
-            $array[$i]['objet_1'] = $this->objet_model->get_by_id($array[$i]['idObjet1']);
-            $array[$i]['objet_2'] = $this->objet_model->get_by_id($array[$i]['idObjet2']);
-        }
-        return $array;
+        return $query->result_array();
     }
 
 /// Fonction pour créer une nouvelle catégorie
-    public function echanger($id_objet1='', $id_objet2=''){
+    public function echanger($id_objet1='', $id_objet2='') {
         $sql='INSERT INTO echange(idObjet1, idObjet2) VALUES (%s, %s)';
         $sql2='UPDATE objet SET etat=3 WHERE id=%s OR id=%s';
         $sql = sprintf($sql, $this->db->escape($id_objet1), $this->db->escape($id_objet2));
@@ -68,21 +65,16 @@ class Echange_model extends CI_Model {
         $query = $this->db->query($sql);
         $query = $this->db->query($sql2); 
     }
-
-/// Fonction pour accepter un echange
-    public function accepter_echange( $id_objet1='', $id_objet2='', $id_user1='', $id_user2=''){
-        $sql1 = 'UPDATE echange e JOIN objet o1 ON e.idOBjet1=o1.id JOIN objet o2 ON e.idObjet2=o2.id SET date_acceptation=now() WHERE o1.id=%s AND o2.id=%s';
-        $sql1 = sprintf($sql1, $this->db->escape($id_objet1), $this->db->escape($id_objet2));
-        $this->db->query($sql1);
-        $sql2 = 'UPDATE objet SET idUser=%s WHERE id=%s';
-        $sql2 = sprintf($sql2, $this->db->escape($id_user1), $this->db->escape($id_objet2));
-        $this->db->query($sql2);
-        $sql3 = 'UPDATE objet SET idUser=%s WHERE id=%s';
-        $sql3= sprintf($sql3, $this->db->escape($id_user2), $this->db->escape($id_objet1));
-        $this->db->query($sql3);
-        $sql4 = 'UPDATE objet SET etat=0 WHERE id=%s OR id=%s';
-        $sql4 = sprintf($sql4, $this->db->escape($id_objet1), $this->db->escape($id_objet2));
-        $this->db->query($sql4);
+    
+    /// Fonction pour accepter un echange
+    public function accepter_echange($id_objet1='', $id_objet2='', $id_user1='', $id_user2=''){
+        $this->echange_model->historiser($id_objet1, $id_user1);
+        $this->echange_model->historiser($id_objet2, $id_user2);
+        $sql = 'UPDATE echange e JOIN objet o1 ON e.idOBjet1=o1.id JOIN objet o2 ON e.idObjet2=o2.id SET date_acceptation=now() WHERE o1.id=%s AND o2.id=%s';
+        $sql = sprintf($sql, $this->db->escape($id_objet1), $this->db->escape($id_objet2));
+        $this->db->query($sql);
+        $this->objet_model->echanger($id_objet2, $id_user1);
+        $this->objet_model->echanger($id_objet1, $id_user2);
     }
 
 /// Fonction pour annuler un échange
@@ -93,5 +85,11 @@ class Echange_model extends CI_Model {
         $sql2='UPDATE objet SET etat=3 WHERE id=%s OR id=%s';
         $sql2=sprintf($sql2, $this->db->escape($id_objet1), $this->db->escape($id_objet2));
         $this->db->query($sql2);
+    }
+
+    public function historiser($id_objet, $proprietaire) {
+        $sql = 'INSERT INTO historique (idObjet, proprietaire) VALUES (%s, %s)';
+        $sql = sprintf($sql, $this->db->escape($id_objet), $this->db->escape($proprietaire));
+        $this->db->query($sql);
     }
 }

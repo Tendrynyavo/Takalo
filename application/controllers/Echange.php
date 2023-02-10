@@ -70,7 +70,7 @@ class Echange extends CI_Controller {
         $data = array();
         $data['user'] = $this->session->user;
         $data['categories'] = $this->categorie_model->get_categorie();
-        $data['histories'] = $this->echange_model->get_historique();
+        $data['histories'] = $this->echange_model->get_historique($this->input->get('objet'));
         $data['content'] = 'historique';
         
         $this->load->view('template', $data);

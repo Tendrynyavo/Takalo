@@ -24,7 +24,6 @@
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="<?php echo base_url('index.php/objet'); ?>">Accueil</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="<?php echo base_url('index.php/objet/gestion'); ?>">Mes Objets</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="<?php echo base_url('index.php/echange/proposition'); ?>">Propositions</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="<?php echo base_url('index.php/echange/history'); ?>">Historique</a></li>
                 </ul>
                 
                 <ul class="navbar-nav mx-auto">
@@ -37,7 +36,7 @@
                     <fieldset>
                         <div class="input-group">
                             <input id="oSaisie" name="search" type="text" class="form-control" aria-label="Saisie de mots clés" placeholder="Mot(s) clé(s)" required="required">
-                            <select class="selectpicker" name="categorie">
+                            <select class="selectpicker form-select" name="categorie">
                                 <option selected>Catégorie</option>
                                 <?php foreach ($categories as $categorie) { ?>
                                 <option value="<?php echo $categorie['id']; ?>"><?php echo $categorie['nom']; ?></option>

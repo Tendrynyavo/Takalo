@@ -64,7 +64,7 @@
                         <p><strong>Propriétaire: </strong>Vous</p>
 
                         <form method="get" action="<?php echo base_url('index.php/echange'); ?>" class="text-center">
-                            <select class="selectpicker" name="choix">
+                            <select class="selectpicker form-select" name="choix">
                                 <option selected>Choisissez un objet</option>
                                 <?php foreach ($objets as $objet) { ?>
                                 <option value="<?php echo $objet['id']; ?>"><?php echo $objet['nom']; ?></option>

@@ -21,7 +21,10 @@ class Objet_model extends CI_Model {
 
 /// Fonction pour obtenir un objet par son id
     public function get_by_id($id = 1) {
-        $sql='SELECT o.*, u.nom as user, u.id as user_id FROM objet o JOIN user u ON o.idUser=u.id WHERE o.id = %s';
+        $sql = 'SELECT o.*, u.nom as user, u.id as user_id
+                FROM objet o 
+                    JOIN user u ON o.idUser=u.id 
+                WHERE o.id = %s';
         $sql = sprintf($sql, $this->db->escape($id));
         $query = $this->db->query($sql);
         $objet = $query->row_array();
@@ -31,14 +34,19 @@ class Objet_model extends CI_Model {
 
 /// Fonction pour obtenir les photos d'un objet par son id
     public function get_photo() {
-        $sql='SELECT * FROM photo p JOIN objet o ON p.idObjet=o.id';
+        $sql = 'SELECT *
+                FROM photo p
+                    JOIN objet o ON p.idObjet=o.id';
         $query = $this->db->query($sql); 
         return $query->result_array();
     }
 
 /// Fonction pour obtenir les photos d'un objet par son id
     public function get_photo_by_objet($id_objet = 1) {
-        $sql='SELECT * FROM photo p JOIN objet o ON p.idObjet=o.id WHERE o.id=%s';
+        $sql = 'SELECT * 
+                FROM photo p
+                    JOIN objet o ON p.idObjet=o.id
+                WHERE o.id=%s';
         $sql = sprintf($sql, $this->db->escape($id_objet));
         $query = $this->db->query($sql);
         return $query->result_array();
@@ -46,7 +54,9 @@ class Objet_model extends CI_Model {
 
 /// Fonction pour obtenir un objet par son id
     public function get_by_id_user($id = 1) {
-        $sql='SELECT * FROM objet WHERE iduser = %s';
+        $sql = 'SELECT *
+                FROM objet
+                WHERE iduser = %s';
         $sql = sprintf($sql, $this->db->escape($id));
         $query = $this->db->query($sql); 
         $array = $query->result_array();
@@ -59,7 +69,9 @@ class Objet_model extends CI_Model {
 /// Fonction pour lister les échanges
     public function get_pourcentage($pourcentage='', $id_objet='', $id_user='') {
         $objet = $this->objet_model->get_by_id($id_objet);
-        $sql = 'SELECT * FROM objet WHERE idUser != %s AND etat = 0 AND prix > ('.$objet['prix'].'-'.$objet['prix'].'*%s) AND prix<('.$objet['prix'].'+'.$objet['prix'].'*%s) AND id != %s';
+        $sql = 'SELECT *
+                FROM objet
+                WHERE idUser != %s AND etat = 0 AND prix > ('.$objet['prix'].'-'.$objet['prix'].'*%s) AND prix<('.$objet['prix'].'+'.$objet['prix'].'*%s) AND id != %s';
         $sql = sprintf($sql, $this->db->escape($id_user), $this->db->escape($pourcentage), $this->db->escape($pourcentage), $this->db->escape($id_objet)); 
         $query = $this->db->query($sql);
         $array = $query->result_array();
@@ -71,7 +83,9 @@ class Objet_model extends CI_Model {
 
 /// Fonction pour obtenir les objet n'appartenat pas à un utilisateur en utilisant son id
     public function get_not_owned($id = 1) {
-        $sql='SELECT * FROM objet WHERE NOT iduser = %s AND etat = 0';
+        $sql = 'SELECT *
+                FROM objet
+                WHERE NOT iduser = %s AND etat = 0';
         $sql = sprintf($sql, $this->db->escape($id));
         $query = $this->db->query($sql); 
         $array = $query->result_array();
@@ -83,7 +97,9 @@ class Objet_model extends CI_Model {
 
 /// Fonction pour obtenir un objet par son idcategorie
     public function get_by_idcategorie($id_categorie = 1) {
-        $sql='SELECT * FROM objet WHERE idCategorie = %s';
+        $sql = 'SELECT * 
+                FROM objet 
+                WHERE idCategorie = %s';
         $sql = sprintf($sql, $this->db->escape($id_categorie));
         $query = $this->db->query($sql); 
         return $query->result_array();
@@ -119,7 +135,9 @@ class Objet_model extends CI_Model {
     }
     
     public function get_last_id() {
-        $sql = 'SELECT id as last_id from objet order by id DESC LIMIT 1';
+        $sql = 'SELECT id as last_id 
+                FROM objet 
+                ORDER BY id DESC LIMIT 1';
         $query = $this->db->query($sql);
         return $query->row_array();
     }
@@ -127,7 +145,9 @@ class Objet_model extends CI_Model {
 /// Fonction de recherche
     public function rechercher_objet($mot_cle='', $categorie='') {
         $mc='%'.$mot_cle.'%';
-        $sql="SELECT * FROM objet WHERE nom LIKE %s";
+        $sql = "SELECT * 
+                FROM objet 
+                WHERE nom LIKE %s";
         $sql = sprintf($sql, $this->db->escape($mc));
         if ($categorie != -1) $sql = $sql . ' AND idCategorie = ' . $this->db->escape($categorie);
         $query = $this->db->query($sql);
@@ -161,5 +181,11 @@ class Objet_model extends CI_Model {
             $array[] = $this->objet_model->get_by_id($ajout);
         }
         return $array;
+    }
+
+    public function echanger($id_objet, $id_user) {
+        $sql = 'UPDATE objet SET idUser=%s, etat=0 WHERE id=%s';
+        $sql = sprintf($sql, $this->db->escape($id_user), $this->db->escape($id_objet));
+        $this->db->query($sql);
     }
 }

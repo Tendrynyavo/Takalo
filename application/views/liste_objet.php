@@ -32,6 +32,7 @@
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                             <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="<?php echo base_url('index.php/echange?id='. $objet['id']); ?>">Proposer d'echanger</a></div>
+                            <div class="text-center mt-2"><a class="btn btn-outline-dark mt-auto" href="<?php echo base_url('index.php/echange/history?objet='. $objet['id']); ?>">Historique</a></div>
                         </div>
                     </div>
                 </div>

@@ -13,17 +13,11 @@
     <div class="container py-4 py-xl-5">
         <div class="row row-cols-1 row-cols-md-2">
             <?php foreach ($histories as $history) { ?>
-            <div class="col-xl-3 d-flex flex-column justify-content-center p-4">
-                <div class="text-center"><Strong><h5 class="text-info">Ancien Propriétaire</h5></Strong> <br><p class="text-dark"><?php echo $history['user_2']['nom']; ?></p></div>
+            <div class="col-xl-6 d-flex flex-column justify-content-center p-4">
+                <div class="text-center"><Strong><h5 class="text-info">Ancien Propriétaire</h5></Strong> <br><p class="text-dark"><?php echo $history['nom']; ?></p></div>
             </div>
-            <div class="col-xl-3 d-flex flex-column justify-content-center p-4">
-                <div class="text-center"><Strong><h5 class="text-info">Nouveau Propriétaire</h5></Strong> <br><p class="text-dark"> <?php echo $history['user_1']['nom']; ?></p></div>
-            </div>
-            <div class="col-xl-3 d-flex flex-column justify-content-center p-4">
-                <div class="text-center"><Strong><h5 class="text-info">Objet</h5></Strong> <br><p class="text-dark"> <?php echo $history['objet_1']['nom']; ?></p></div>
-            </div>
-            <div class="col-xl-3 d-flex flex-column justify-content-center p-4">
-                <div class="text-center"><Strong><h5 class="text-info">Date d'échange</h5></Strong> <br><p class="text-dark"><?php echo $history['date_acceptation']; ?></p></div>
+            <div class="col-xl-6 d-flex flex-column justify-content-center p-4">
+                <div class="text-center"><Strong><h5 class="text-info">Date d'échange</h5></Strong> <br><p class="text-dark"><?php echo $history['date']; ?></p></div>
             </div>
             <?php } ?>
         </div>

@@ -12,7 +12,9 @@ class Categorie_model extends CI_Model {
 
 /// Fonction pour chercher une catégorie à partir de son id
     public function get_by_id($id = 1) {
-        $sql='SELECT * FROM categorie WHERE id = %d';
+        $sql = 'SELECT *
+                FROM categorie
+                WHERE id = %d';
         $sql = sprintf($sql, $this->db->escape($id));
         $query = $this->db->query($sql); 
         return $query->result_array();

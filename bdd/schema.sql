@@ -47,5 +47,5 @@ CREATE TABLE historique (
     id INT PRIMARY KEY AUTO_INCREMENT,
     idObjet INT REFERENCES objet(id),
     proprietaire INT REFERENCES user(id),
-    date DATETIME
+    date DATETIME NOT NULL DEFAULT NOW()
 );
