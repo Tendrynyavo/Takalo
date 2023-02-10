@@ -46,11 +46,12 @@ class Objet extends Check_session_user {
         $data['user'] = $this->session->user;
         $data['categories'] = $this->categorie_model->get_categorie();
         $data['error'] = $this->input->get('error');
-        $objet = (object) array(
+        $objet = array(
             'id' => $this->input->get('id'),
             'nom' => $this->input->get('nom'),
             'prix' => $this->input->get('prix'),
-            'descr' => $this->input->get('descr')
+            'descr' => $this->input->get('descr'),
+            'photo' => $this->objet_model->get_photo_by_objet($this->input->get('id'))
         );
         $data['objet'] = ($data['error'] != null) ? $objet : $this->objet_model->get_by_id($this->input->get('id'));
         $data['content'] = 'modif_objet';
