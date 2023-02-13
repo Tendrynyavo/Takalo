@@ -37,7 +37,6 @@
                         <div class="input-group">
                             <input id="oSaisie" name="search" type="text" class="form-control" aria-label="Saisie de mots clés" placeholder="Mot(s) clé(s)" required="required">
                             <select class="selectpicker form-select" name="categorie">
-                                <option selected>Catégorie</option>
                                 <?php foreach ($categories as $categorie) { ?>
                                 <option value="<?php echo $categorie['id']; ?>"><?php echo $categorie['nom']; ?></option>
                                 <?php } ?>

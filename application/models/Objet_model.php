@@ -11,7 +11,7 @@ class Objet_model extends CI_Model {
 
 /// Fonction pour lister tous les objets
     public function get_objets() {
-        $query = $this->db->query('SELECT * FROM objet'); 
+        $query = $this->db->query('SELECT * FROM objet');
         $array = $query->row_array();
         for ($i = 0; $i < count($array); $i++) {
             $array[$i]['photo'] = $this->objet_model->get_photo_by_objet($array[$i]['id']);
@@ -22,8 +22,8 @@ class Objet_model extends CI_Model {
 /// Fonction pour obtenir un objet par son id
     public function get_by_id($id = 1) {
         $sql = 'SELECT o.*, u.nom as user, u.id as user_id
-                FROM objet o 
-                    JOIN user u ON o.idUser=u.id 
+                FROM objet o
+                    JOIN user u ON o.idUser=u.id
                 WHERE o.id = %s';
         $sql = sprintf($sql, $this->db->escape($id));
         $query = $this->db->query($sql);
@@ -150,7 +150,7 @@ class Objet_model extends CI_Model {
                 WHERE nom LIKE %s";
         $sql = sprintf($sql, $this->db->escape($mc));
         if ($categorie != -1) $sql = $sql . ' AND idCategorie = ' . $this->db->escape($categorie);
-        $query = $this->db->query($sql);
+        $query = $this->db->query($sql);  
         $array = $query->result_array();
         for ($i = 0; $i < count($array); $i++) {
             $array[$i]['photo'] = $this->objet_model->get_photo_by_objet($array[$i]['id']);
